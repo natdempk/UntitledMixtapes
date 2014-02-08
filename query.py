@@ -50,11 +50,6 @@ def do_everything(artist_name, song_name, song_max=8):
     seen_add = seen.add
     sim_songs = [ x for x in sim_songs if x not in seen and not seen_add(x)]
 
-    sim_songs_ids = []
-    '''
-    for i in range(len(sim_songs)):
-        sim_songs_ids.append(song.search(title=sim_songs[i])[0].id)
-    '''
     sim_songs_info = []
 
     for i in range(len(sim_songs)):
@@ -75,7 +70,7 @@ def do_everything(artist_name, song_name, song_max=8):
 
     counter = 0
 
-    for i in range(4):
+    for i in range(song_max/2):
         flag = True
         while flag == True:
             flag = False
