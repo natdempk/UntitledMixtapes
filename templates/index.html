@@ -3,7 +3,7 @@
 
       <div class="starter-template">
         <h1>Customize Your Playlist</h1>
-        <form name="playlist" action="/generate" method="post">
+        <form id="playlist" name="playlist" action="/generate" method="post">
           <div class="input-group">
             <span class="input-group-addon">Artist</span>
             <input type="text" class="form-control" id="artist" name="artist" placeholder="Anamanaguchi">
@@ -32,7 +32,8 @@
           <br />
           <div id="tracks-slider"></div>
           <br />
-          <button type="submit" class="btn btn-primary btn-lg has-spinner"><span class="spinner"><i class="icon-spin icon-refresh"></i></span>Make a playlist!</button>
+          <input id="submitbutton" type="submit" class="btn btn-primary btn-lg has-spinner" value="Make a playlist!" />
+          <img id="daspinnerid" class="daspinner gone" src="../static/css/spinner.gif" />
         </form>
 
       </div>
@@ -88,10 +89,12 @@
 
     // button spinner on click
     $(function(){
-      $('button').click(function() {
-          $(this).toggleClass('active');
+      $('#submitbutton').click(function() {
+          $('#daspinnerid').toggleClass('gone');
+          $('#submitbutton').attr('disabled', 'disabled');
+          $('#playlist').delay(100).submit();
       });
-    });
+    })
     </script>
 
 {% endblock %}

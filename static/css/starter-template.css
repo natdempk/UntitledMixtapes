@@ -5,3 +5,52 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
+
+.spinner {
+  display: inline-block;
+  opacity: 0;
+  max-width: 0;
+
+  -webkit-transition: opacity 0.25s, max-width 0.45s;
+  -moz-transition: opacity 0.25s, max-width 0.45s;
+  -o-transition: opacity 0.25s, max-width 0.45s;
+  transition: opacity 0.25s, max-width 0.45s; /* Duration fixed since we animate additional hidden width */
+}
+
+.has-spinner .active {
+  cursor:progress;
+}
+
+.spinner {
+  opacity: 1;
+  max-width: 200px; /* More than it will ever come, notice that this affects on animation duration */
+}
+
+/* doesn't work */
+.input-group-addon {
+    min-width: 100px;
+    text-align: left;
+}
+
+button {
+  -webkit-transition: opacity 0.5s
+  -moz-transition: opacity 0.5s
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.gone {
+  opacity: 0;
+}
+
+
+.daspinner {
+  height: 30px;
+  width: 30px;
+  margin-left: 20px;
+
+  -webkit-transition: opacity 1s
+  -moz-transition: opacity 1s
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+}
