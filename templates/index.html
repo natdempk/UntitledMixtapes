@@ -2,6 +2,12 @@
 {% block body %}
 
       <div class="starter-template">
+        {% if error %}
+        <div class="alert alert-warning alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+           {{error}}
+        </div>
+        {% endif %}
         <h2>A Spotify Mixtape Generator</h2>
         <p>
           Enter any song by any artist, adjust the setting sliders as wanted, and watch your custom mix be generated.

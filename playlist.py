@@ -2,6 +2,7 @@ from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
 import query
 import pyechonest
+import pylast
 
 
 app = Flask(__name__)
@@ -19,7 +20,14 @@ def generate_playlist():
     track = request.form['track']
     diversity = request.form['diversity']
     tracks = int(request.form['tracks'])
-    tuples = query.do_everything(artist, track, int(tracks), int(diversity))
+    try:
+        tuples = query.do_everything(artist, track, int(tracks), int(diversity))
+    except pyechonest.util.EchoNestAPIError:
+        return render_template('index.html', error="Slow down! Maximum number of EchoNest API Requests exceeded.")
+    except pylast.WSError:
+        return render_template('index.html', error="Your artist was not found.")
+    except IndexError:
+        return render_template('index.html', error="Your track was not found.")
     #print artist
     #print track
     #print bpm
