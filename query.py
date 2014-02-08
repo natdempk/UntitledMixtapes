@@ -5,7 +5,7 @@ from pyechonest import config, artist, song
 
 config.ECHO_NEST_API_KEY = "***REMOVED***"
 
-def do_everything(artist_name):
+def do_everything(artist_name, song_name):
 
     similar_artist_num = 12
     song_max = 10
@@ -34,6 +34,8 @@ def do_everything(artist_name):
             similar_artist_num = len(similar_artists)
             break
 
+    the_song = song.search(title=song_name, artist=artist_name)[0]
+    the_song_info = the_song.get_audio_summary()
 
     sim_songs = []
 
@@ -58,6 +60,9 @@ def do_everything(artist_name):
     for i in range(len(sim_songs)):
         sim_songs_info.append(sim_songs[i].get_audio_summary())
         sim_songs_info[i]['song_handle'] = sim_songs[i]
+
+    sim_songs_info = filter(lambda k: k[u'energy'] < the_song_info[u'energy']+.2 and
+    				      k[u'energy'] > the_song_info[u'energy']-.2, sim_songs_info)
 
     sim_songs_info = sorted(sim_songs_info, key=lambda k: k[u'tempo'])
 
