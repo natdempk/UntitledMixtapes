@@ -30,5 +30,5 @@ def generate_playlist():
     return render_template('playlist.html', playlist_id=playlist_id, tuples=tuples)
 
 if __name__ == '__main__':
-    #app.run(debug=True)
-    app.run()
+    app.run(debug=True)
+    #app.run()

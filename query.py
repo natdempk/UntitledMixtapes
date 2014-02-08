@@ -5,7 +5,7 @@ from pyechonest import config, artist, song
 
 config.ECHO_NEST_API_KEY = "***REMOVED***"
 
-def do_everything(artist_name, song_name, song_max=8):
+def do_everything(artist_name, song_name, song_max=8, diversity=0):
 
     similar_artist_num = 13
     song_max -= 2
@@ -26,6 +26,9 @@ def do_everything(artist_name, song_name, song_max=8):
     artistgrab = network.get_artist(artist_name)
     similar = artistgrab.get_similar()[0:similar_artist_num]
     similar_artists = []
+    if diversity: # get more similar artists
+        kinda_similar_artists = artistgrab.get_similar()[0:similar_artist_num]
+
 
     for i in range(similar_artist_num):
         if i < len(similar):
