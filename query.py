@@ -71,12 +71,12 @@ def do_everything(artist_name, song_name):
     fast_songs = sorted(sim_songs_info[len(sim_songs_info)/2:],
                         key=lambda k: k[u'duration'])
 
-	'''
+    '''
     slow_short = slow_songs[:len(slow_songs)/2]
     slow_long  = slow_songs[len(slow_songs)/2:]
     fast_short = fast_songs[:len(fast_songs)/2]
     fast_long  = fast_songs[len(fast_songs)/2:]
-	'''
+    '''
     total_info = []
 
     counter = 0
