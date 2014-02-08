@@ -7,8 +7,8 @@ config.ECHO_NEST_API_KEY = "***REMOVED***"
 
 def do_everything(artist_name, song_name):
 
-    similar_artist_num = 12
-    song_max = 10
+    similar_artist_num = 15
+    song_max = 8
 
     '''
     search = sm.search_artist("The XX")
