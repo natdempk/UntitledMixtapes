@@ -61,8 +61,8 @@ def do_everything(artist_name, song_name):
         sim_songs_info.append(sim_songs[i].get_audio_summary())
         sim_songs_info[i]['song_handle'] = sim_songs[i]
 
-    sim_songs_info = filter(lambda k: k[u'energy'] < the_song_info[u'energy']+.25 and
-    				      k[u'energy'] > the_song_info[u'energy']-.25, sim_songs_info)
+    sim_songs_info = filter(lambda k: k[u'energy'] < the_song_info[u'energy']+.3 and
+    				      k[u'energy'] > the_song_info[u'energy']-.3, sim_songs_info)
 
     sim_songs_info = sorted(sim_songs_info, key=lambda k: k[u'tempo'])
 
