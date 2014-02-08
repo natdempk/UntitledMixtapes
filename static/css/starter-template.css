@@ -26,7 +26,6 @@ body {
   max-width: 200px; /* More than it will ever come, notice that this affects on animation duration */
 }
 
-/* doesn't work */
 .input-group-addon {
     min-width: 80px;
     text-align: left;
@@ -53,4 +52,10 @@ button {
   -moz-transition: opacity 1s
   -o-transition: opacity 1s;
   transition: opacity 1s;
+}
+
+.navbar-brand {
+  /*font-family: 'Audiowide', cursive;*/
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 24px;
 }

@@ -17,9 +17,9 @@ def show_home():
 def generate_playlist():
     artist = request.form['artist']
     track = request.form['track']
-    tuples = query.do_everything(artist, track)
     diversity = request.form['diversity']
-    tracks = request.form['tracks']
+    tracks = int(request.form['tracks'])
+    tuples = query.do_everything(artist, track, tracks)
     #print artist
     #print track
     #print bpm

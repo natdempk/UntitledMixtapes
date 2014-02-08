@@ -11,13 +11,13 @@
             <input type="text" class="form-control" id="track" name="track" placeholder="Endless Fantasy">
           </div>
           <br />
-          <div class="input-group">
+          <!--<div class="input-group">
             <span class="input-group-addon">Energy</span>
             <input type="text" class="form-control" id="bpm-val" name="bpm" value="2">
           </div>
           <br />
           <div id="bpm-slider"></div>
-          <br />
+          <br />-->
           <div class="input-group">
             <span class="input-group-addon">Diversity</span>
             <input type="text" class="form-control" id="diversity-val" name="diversity" value="2">
@@ -27,7 +27,7 @@
           <br />
           <div class="input-group">
             <span class="input-group-addon"># Tracks</span>
-            <input type="text" class="form-control" id="tracks-val" name="tracks" value="2">
+            <input type="text" class="form-control" id="tracks-val" name="tracks" value="8">
           </div>
           <br />
           <div id="tracks-slider"></div>
@@ -45,7 +45,7 @@
       //alert(jQuery.fn.jquery);
     //}
     // update bpm input based on sliders
-    $(function() {
+    /*$(function() {
       $( "#bpm-slider" ).slider({
         range: "min",
         value: 2,
@@ -57,7 +57,7 @@
         }
       });
       $( "#bpm-val" ).val( $( "#bpm-slider" ).slider( "value" ));
-    });
+    });*/
     // update diversity based on slider
     $(function() {
       $( "#diversity-slider" ).slider({
@@ -76,10 +76,10 @@
     $(function() {
       $( "#tracks-slider" ).slider({
         range: "min",
-        value: 2,
-        min: 1,
-        max: 3,
-        step: 1,
+        value: 8,
+        min: 6,
+        max: 16,
+        step: 2,
       slide: function( event, ui ) {
           $( "#tracks-val" ).val( ui.value );
         }
