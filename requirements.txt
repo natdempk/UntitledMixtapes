@@ -3,4 +3,6 @@ Jinja2==2.7.2
 MarkupSafe==0.18
 Werkzeug==0.9.4
 itsdangerous==0.23
+pyechonest==8.0.1
+pylast==0.5.11
 wsgiref==0.1.2
