@@ -13,11 +13,14 @@ def show_home():
 @app.route('/generate', methods=['POST'])
 def generate_playlist():
     artist = request.args.get('artist')
+    tuples = query.do_everything(artist)
     bpm = request.args.get('bpm')
     diversity = request.args.get('diversity')
     tracks = request.args.get('tracks')
+    playlist_id = 'test'
+    #print tuples
 
-    return render_template('playlist.html', playlist_id=playlist_id)
+    return render_template('playlist.html', playlist_id=playlist_id, tuples=tuples)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

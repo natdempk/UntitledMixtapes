@@ -2,27 +2,35 @@
 {% block body %}
 
       <div class="starter-template">
-        <h1>Customize your playlist:</h1>
+        <h1>Customize Your Playlist</h1>
         <form name="playlist" action="/generate" method="post">
-          <label for "artist">Artist:</label>
-          <input type="text" id="artist" name="artist">
+          <div class="input-group">
+            <span class="input-group-addon">Artist</span>
+            <input type="text" class="form-control" id="artist" name="artist" placeholder="Anamanaguchi">
+          </div>
           <br />
-          <label for="bpm-val">Energy:</label>
-          <input type="text" id="bpm-val" name="bpm" value="2">
+          <div class="input-group">
+            <span class="input-group-addon">Energy</span>
+            <input type="text" class="form-control" id="bpm-val" name="bpm" value="2">
+          </div>
           <br />
           <div id="bpm-slider"></div>
           <br />
-          <label for="diversity-val">Diversity:</label>
-          <input type="text" id="diversity-val" name="diversity" value="2">
+          <div class="input-group">
+            <span class="input-group-addon">Diversity</span>
+            <input type="text" class="form-control" id="diversity-val" name="diversity" value="2">
+          </div>
           <br />
           <div id="diversity-slider"></div>
           <br />
-          <label for="tracks-val"># Tracks:</label>
-          <input type="text" id="tracks-val" name="tracks" value="2">
+          <div class="input-group">
+            <span class="input-group-addon"># Tracks</span>
+            <input type="text" class="form-control" id="tracks-val" name="tracks" value="2">
+          </div>
           <br />
           <div id="tracks-slider"></div>
           <br />
-          <input type="submit" value="Make a playlist!">
+          <button type="submit" class="btn btn-primary btn-lg">Make a playlist!</button>
         </form>
 
       </div>

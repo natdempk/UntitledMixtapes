@@ -6,26 +6,7 @@ body {
   text-align: center;
 }
 
-#bpm-slider label {
-  position: absolute;
-  width: 20px;
-  margin-top: 20px;
-  margin-left: -10px;
-  text-align: center;
-}
-
-#diversity-slider label {
-  position: absolute;
-  width: 20px;
-  margin-top: 20px;
-  margin-left: -10px;
-  text-align: center;
-}
-
-#tracks-slider label {
-  position: absolute;
-  width: 20px;
-  margin-top: 20px;
-  margin-left: -10px;
-  text-align: center;
+.input-group-addon {
+    min-width: 600px;
+    text-align: left;
 }
