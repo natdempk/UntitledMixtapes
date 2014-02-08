@@ -2,7 +2,12 @@
 {% block body %}
 
       <div class="starter-template">
-        <h1>Customize Your Playlist</h1>
+        <h2>A Spotify Mixtape Generator</h2>
+        <p>
+          Enter any song by any artist, adjust the setting sliders as wanted, and watch your custom mix be generated.
+        </p>
+        <br />
+        <br />
         <form id="playlist" name="playlist" action="/generate" method="post">
           <div class="input-group">
             <span class="input-group-addon">Artist</span>
@@ -19,15 +24,15 @@
           <div id="bpm-slider"></div>
           <br />-->
           <div class="input-group">
-            <span class="input-group-addon">Diversity</span>
-            <input type="text" class="form-control" id="diversity-val" name="diversity" value="2">
+           <span class="input-group-addon">Diversity</span>
+            <input type="text" class="form-control" id="diversity-val" name="diversity" value="2" readonly>
           </div>
           <br />
           <div id="diversity-slider"></div>
           <br />
           <div class="input-group">
-            <span class="input-group-addon"># Tracks</span>
-            <input type="text" class="form-control" id="tracks-val" name="tracks" value="8">
+            <span class="input-group-addon"># of Tracks</span>
+            <input type="text" class="form-control" id="tracks-val" name="tracks" value="8" readonly>
           </div>
           <br />
           <div id="tracks-slider"></div>
