@@ -37,6 +37,7 @@
         </form>
 
       </div>
+      <img class="mixtape" src="../static/css/mixtape.svg" />
 
       <script>
       // check if jQuery loaded
@@ -91,6 +92,7 @@
     $(function(){
       $('#submitbutton').click(function() {
           $('#daspinnerid').toggleClass('gone');
+          $('#submitbutton').toggleClass('clicked');
           $('#submitbutton').attr('disabled', 'disabled');
           $('#playlist').delay(100).submit();
       });
