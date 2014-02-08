@@ -71,12 +71,6 @@ def do_everything(artist_name, song_name):
     fast_songs = sorted(sim_songs_info[len(sim_songs_info)/2:],
                         key=lambda k: k[u'duration'])
 
-    '''
-    slow_short = slow_songs[:len(slow_songs)/2]
-    slow_long  = slow_songs[len(slow_songs)/2:]
-    fast_short = fast_songs[:len(fast_songs)/2]
-    fast_long  = fast_songs[len(fast_songs)/2:]
-    '''
     total_info = []
 
     counter = 0
@@ -103,29 +97,6 @@ def do_everything(artist_name, song_name):
                         flag = True
         total_info.append(info)
 
-    '''
-    for i in range(2):
-        flag = True
-        while flag == True:
-            flag = False
-            info = fast_long[random.randint(0, len(fast_long)-1)]
-            for j in range(len(total_info)):
-                if info['song_handle'].artist_name == total_info[j]['song_handle'].artist_name:
-                    counter += 1
-                    if counter < 100:
-                        flag = True
-        total_info.append(info)
-        flag = True
-        while flag == True:
-            flag = False
-            info = slow_long[random.randint(0, len(slow_long)-1)]
-            for j in range(len(total_info)):
-                if info['song_handle'].artist_name == total_info[j]['song_handle'].artist_name:
-                    counter += 1
-                    if counter < 100:
-                        flag = True
-        total_info.append(info)
-    '''
     total_res = []
 
     for i in range(len(total_info)):
