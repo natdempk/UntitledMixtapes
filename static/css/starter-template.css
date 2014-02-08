@@ -31,15 +31,22 @@ body {
     text-align: left;
 }
 
-button {
-  -webkit-transition: opacity 0.5s
-  -moz-transition: opacity 0.5s
-  -o-transition: opacity 0.5s;
-  transition: opacity 0.5s;
+#submitbutton {
+  margin-left: 50px;
+
+  -webkit-transition: margin-left .5s;
+  -moz-transition: margin-left .5s;
+  -o-transition: margin-left .5s;
+  transition: margin-left .5s;
 }
 
 .gone {
   opacity: 0;
+  margin-left: 0;
+}
+
+.clicked {
+  margin-left: 0 !important;
 }
 
 
@@ -48,14 +55,20 @@ button {
   width: 30px;
   margin-left: 20px;
 
-  -webkit-transition: opacity 1s
-  -moz-transition: opacity 1s
-  -o-transition: opacity 1s;
-  transition: opacity 1s;
+  -webkit-transition: opacity 1, margin-left .5s;
+  -moz-transition: opacity 1s, margin-left .5s;
+  -o-transition: opacity 1s, margin-left .5s;
+  transition: opacity 1s, margin-left .5s;
 }
 
 .navbar-brand {
   /*font-family: 'Audiowide', cursive;*/
   font-family: 'Montserrat Alternates', sans-serif;
   font-size: 24px;
+}
+
+.mixtape {
+  width: 500px;
+  margin: 0 auto;
+  display: block;
 }
