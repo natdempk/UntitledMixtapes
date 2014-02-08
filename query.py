@@ -124,5 +124,5 @@ def do_everything(artist_name):
 	    total_res.append([total_info[i]['song_handle'].title,
 	                      total_info[i]['song_handle'].artist_name])
 
-	print total_res
+	return total_res
 
