@@ -6,11 +6,11 @@ from pyechonest import config, artist, song
 config.ECHO_NEST_API_KEY = "***REMOVED***"
 
 def get_artist_num(song_max):
-	if song_max == 12
+	if song_max == 12:
 		return 10
-	elif song_max == 14
+	elif song_max == 14:
 		return 8
-	else
+	else:
 		return 13
 
 def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_max=8):
