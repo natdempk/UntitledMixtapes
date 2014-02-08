@@ -28,7 +28,7 @@ body {
 
 /* doesn't work */
 .input-group-addon {
-    min-width: 100px;
+    min-width: 80px;
     text-align: left;
 }
 
