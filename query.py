@@ -1,4 +1,4 @@
-import spotimeta as sm
+#import spotimeta as sm
 import pylast
 import random
 from pyechonest import config, artist, song
@@ -6,123 +6,124 @@ from pyechonest import config, artist, song
 config.ECHO_NEST_API_KEY = "***REMOVED***"
 
 def do_everything(artist_name):
-	similar_artist_num = 12
-	song_max = 10
 
-	'''
-	search = sm.search_artist("The XX")
-	print search['result'][0]['href']
-	'''
+similar_artist_num = 12
+song_max = 10
 
-	API_KEY = "***REMOVED***"
-	API_SECRET = "***REMOVED***"
+'''
+search = sm.search_artist("The XX")
+print search['result'][0]['href']
+'''
 
-	network = pylast.LastFMNetwork(api_key = API_KEY, api_secret = 
-	    API_SECRET, username="natdempk",
-	                password_hash = "***REMOVED***")
+API_KEY = "***REMOVED***"
+API_SECRET = "***REMOVED***"
 
-
-	artistgrab = network.get_artist(artist_name)
-	similar = artistgrab.get_similar()[0:similar_artist_num]
-	similar_artists = []
-
-	for i in range(similar_artist_num):
-	    if i < len(similar):
-	        similar_artists.append(similar[i][0].get_name())
-	    else:
-	        similar_artist_num = len(similar_artists)
-	        break
+network = pylast.LastFMNetwork(api_key = API_KEY, api_secret = 
+    API_SECRET, username="natdempk",
+                password_hash = "***REMOVED***")
 
 
-	sim_songs = []
+artistgrab = network.get_artist(artist_name)
+similar = artistgrab.get_similar()[0:similar_artist_num]
+similar_artists = []
 
-	for i in range(similar_artist_num):
-	    a = artist.Artist(similar_artists[i])
-	    l = a.get_songs()
-	    if l != []:
-	        for j in range(song_max):
-	            sim_songs.append(l[random.randint(0, len(l)-1)])
+for i in range(similar_artist_num):
+    if i < len(similar):
+        similar_artists.append(similar[i][0].get_name())
+    else:
+        similar_artist_num = len(similar_artists)
+        break
 
-	seen = set()
-	seen_add = seen.add
-	sim_songs = [ x for x in sim_songs if x not in seen and not seen_add(x)]
 
-	sim_songs_ids = []
-	'''
-	for i in range(len(sim_songs)):
-	    sim_songs_ids.append(song.search(title=sim_songs[i])[0].id)
-	'''
-	sim_songs_info = []
+sim_songs = []
 
-	for i in range(len(sim_songs)):
-	    sim_songs_info.append(sim_songs[i].get_audio_summary())
-	    sim_songs_info[i]['song_handle'] = sim_songs[i]
+for i in range(similar_artist_num):
+    a = artist.Artist(similar_artists[i])
+    l = a.get_songs()
+    if l != []:
+        for j in range(song_max):
+            sim_songs.append(l[random.randint(0, len(l)-1)])
 
-	sim_songs_info = sorted(sim_songs_info, key=lambda k: k[u'tempo'])
+seen = set()
+seen_add = seen.add
+sim_songs = [ x for x in sim_songs if x not in seen and not seen_add(x)]
 
-	slow_songs = sorted(sim_songs_info[:len(sim_songs_info)/2],
-	                    key=lambda k: k[u'duration'])
-	fast_songs = sorted(sim_songs_info[len(sim_songs_info)/2:],
-	                    key=lambda k: k[u'duration'])
+sim_songs_ids = []
+'''
+for i in range(len(sim_songs)):
+    sim_songs_ids.append(song.search(title=sim_songs[i])[0].id)
+'''
+sim_songs_info = []
 
-	slow_short = slow_songs[:len(slow_songs)/2]
-	slow_long  = slow_songs[len(slow_songs)/2:]
-	fast_short = fast_songs[:len(fast_songs)/2]
-	fast_long  = fast_songs[len(fast_songs)/2:]
+for i in range(len(sim_songs)):
+    sim_songs_info.append(sim_songs[i].get_audio_summary())
+    sim_songs_info[i]['song_handle'] = sim_songs[i]
 
-	total_info = []
+sim_songs_info = sorted(sim_songs_info, key=lambda k: k[u'tempo'])
 
-	counter = 0
+slow_songs = sorted(sim_songs_info[:len(sim_songs_info)/2],
+                    key=lambda k: k[u'duration'])
+fast_songs = sorted(sim_songs_info[len(sim_songs_info)/2:],
+                    key=lambda k: k[u'duration'])
 
-	for i in range(2):
-	    flag = True
-	    while flag == True:
-	        flag = False
-	        info = fast_short[random.randint(0, len(fast_short)-1)]
-	        for j in range(len(total_info)):
-	            if info['song_handle'].artist_name == total_info[j]['song_handle'].artist_name:
-	                counter += 1
-	                if counter < 100:
-	                    flag = True
-	    total_info.append(info)
-	    flag = True
-	    while flag == True:
-	        flag = False
-	        info = slow_short[random.randint(0, len(slow_short)-1)]
-	        for j in range(len(total_info)):
-	            if info['song_handle'].artist_name == total_info[j]['song_handle'].artist_name:
-	                counter += 1
-	                if counter < 100:
-	                    flag = True
-	    total_info.append(info)
+slow_short = slow_songs[:len(slow_songs)/2]
+slow_long  = slow_songs[len(slow_songs)/2:]
+fast_short = fast_songs[:len(fast_songs)/2]
+fast_long  = fast_songs[len(fast_songs)/2:]
 
-	for i in range(2):
-	    flag = True
-	    while flag == True:
-	        flag = False
-	        info = fast_long[random.randint(0, len(fast_long)-1)]
-	        for j in range(len(total_info)):
-	            if info['song_handle'].artist_name == total_info[j]['song_handle'].artist_name:
-	                counter += 1
-	                if counter < 100:
-	                    flag = True
-	    total_info.append(info)
-	    flag = True
-	    while flag == True:
-	        flag = False
-	        info = slow_long[random.randint(0, len(slow_long)-1)]
-	        for j in range(len(total_info)):
-	            if info['song_handle'].artist_name == total_info[j]['song_handle'].artist_name:
-	                counter += 1
-	                if counter < 100:
-	                    flag = True
-	    total_info.append(info)
+total_info = []
 
-	total_res = []
+counter = 0
 
-	for i in range(len(total_info)):
-	    total_res.append([total_info[i]['song_handle'].title,
-	                      total_info[i]['song_handle'].artist_name])
+for i in range(2):
+    flag = True
+    while flag == True:
+        flag = False
+        info = fast_short[random.randint(0, len(fast_short)-1)]
+        for j in range(len(total_info)):
+            if info['song_handle'].artist_name == total_info[j]['song_handle'].artist_name:
+                counter += 1
+                if counter < 100:
+                    flag = True
+    total_info.append(info)
+    flag = True
+    while flag == True:
+        flag = False
+        info = slow_short[random.randint(0, len(slow_short)-1)]
+        for j in range(len(total_info)):
+            if info['song_handle'].artist_name == total_info[j]['song_handle'].artist_name:
+                counter += 1
+                if counter < 100:
+                    flag = True
+    total_info.append(info)
 
-	return total_res
+for i in range(2):
+    flag = True
+    while flag == True:
+        flag = False
+        info = fast_long[random.randint(0, len(fast_long)-1)]
+        for j in range(len(total_info)):
+            if info['song_handle'].artist_name == total_info[j]['song_handle'].artist_name:
+                counter += 1
+                if counter < 100:
+                    flag = True
+    total_info.append(info)
+    flag = True
+    while flag == True:
+        flag = False
+        info = slow_long[random.randint(0, len(slow_long)-1)]
+        for j in range(len(total_info)):
+            if info['song_handle'].artist_name == total_info[j]['song_handle'].artist_name:
+                counter += 1
+                if counter < 100:
+                    flag = True
+    total_info.append(info)
+
+total_res = []
+
+for i in range(len(total_info)):
+    total_res.append([total_info[i]['song_handle'].title,
+                      total_info[i]['song_handle'].artist_name])
+
+print total_res
 
