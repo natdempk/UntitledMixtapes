@@ -13,7 +13,8 @@ def show_home():
 @app.route('/generate', methods=['POST'])
 def generate_playlist():
     artist = request.args.get('artist')
-    tuples = query.do_everything(artist)
+    track = request.args.get('track')
+    tuples = query.do_everything(artist, track)
     bpm = request.args.get('bpm')
     diversity = request.args.get('diversity')
     tracks = request.args.get('tracks')
