@@ -18,7 +18,7 @@ def do_everything(artist_name, song_name):
     API_KEY = "***REMOVED***"
     API_SECRET = "***REMOVED***"
 
-    network = pylast.LastFMNetwork(api_key = API_KEY, api_secret = 
+    network = pylast.LastFMNetwork(api_key = API_KEY, api_secret =
         API_SECRET, username="natdempk",
                     password_hash = "***REMOVED***")
 
