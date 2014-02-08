@@ -30,16 +30,18 @@
           <br />
           <div id="tracks-slider"></div>
           <br />
-          <button type="submit" class="btn btn-primary btn-lg">Make a playlist!</button>
+          <button type="submit" class="btn btn-primary btn-lg"><span class="spinner"><i class="icon-spin icon-refresh"></i></span>Make a playlist!</button>
         </form>
 
       </div>
 
       <script>
+      // check if jQuery loaded
     //if (typeof jQuery != 'undefined') {
       // jQuery is loaded => print the version
       //alert(jQuery.fn.jquery);
     //}
+    // update bpm input based on sliders
     $(function() {
       $( "#bpm-slider" ).slider({
         range: "min",
@@ -53,7 +55,7 @@
       });
       $( "#bpm-val" ).val( $( "#bpm-slider" ).slider( "value" ));
     });
-
+    // update diversity based on slider
     $(function() {
       $( "#diversity-slider" ).slider({
         range: "min",
@@ -67,7 +69,7 @@
       });
       $( "#diversity-val" ).val( $( "#diversity-slider" ).slider( "value" ));
     });
-
+    // update tracks based on slider
     $(function() {
       $( "#tracks-slider" ).slider({
         range: "min",
@@ -80,6 +82,13 @@
         }
       });
       $( "#tracks-val" ).val( $( "#tracks-slider" ).slider( "value" ));
+    });
+
+    // button spinner on click
+    $(function(){
+      $('button').click(function() {
+          $(this).toggleClass('active');
+      });
     });
     </script>
 
