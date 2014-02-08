@@ -19,7 +19,7 @@ def generate_playlist():
     track = request.form['track']
     diversity = request.form['diversity']
     tracks = int(request.form['tracks'])
-    tuples = query.do_everything(artist, track, tracks)
+    tuples = query.do_everything(artist, track, int(tracks), int(diversity))
     #print artist
     #print track
     #print bpm
