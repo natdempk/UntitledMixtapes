@@ -5,10 +5,10 @@ from pyechonest import config, artist, song
 
 config.ECHO_NEST_API_KEY = "***REMOVED***"
 
-def do_everything(artist_name, song_name):
+def do_everything(artist_name, song_name, song_max=8):
 
     similar_artist_num = 13
-    song_max = 8
+    song_max -= 2
 
     '''
     search = sm.search_artist("The XX")
