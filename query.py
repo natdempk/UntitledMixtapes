@@ -198,7 +198,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
         except:
             tflag = True
             n += 1
-
+    n += 1
     tflag = True
     while tflag == True:
         tflag = False
