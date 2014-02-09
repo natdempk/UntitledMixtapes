@@ -115,7 +115,6 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     #        similar_artist_num = len(similar_artists)
     #        break
 
-
     the_song = song.search(title=song_name, artist=artist_name)[0] # get requested song
     the_song_info = the_song.get_audio_summary() # get echonest song info
 
@@ -183,9 +182,10 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     #print time.time() - start_time
     the_artist = artist.Artist(artist_name)
     the_songs = the_artist.get_songs()[:5]
+    the_songs = sorted(the_songs, key=lambda k:the_song_info['energy']-k['energy'])
     #print "end"
     #print time.time() - start_time
-    first_song = the_songs[random.randint(0, len(the_songs)-1)]
+    first_song = the_songs[1]
 
     seen = set()
     seen_add = seen.add
