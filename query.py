@@ -115,7 +115,6 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     #        similar_artist_num = len(similar_artists)
     #        break
 
-
     the_song = song.search(title=song_name, artist=artist_name)[0] # get requested song
     the_song_info = the_song.get_audio_summary() # get echonest song info
 
@@ -182,10 +181,11 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     #print "artist get name"
     #print time.time() - start_time
     the_artist = artist.Artist(artist_name)
-    the_songs = the_artist.get_songs()[:5]
+    the_songs = sorted(the_artist.get_songs()[:5], key=lambda k: the_song_info[u'energy']-k.get_audio_summary()[u'energy'])
     #print "end"
     #print time.time() - start_time
-    first_song = the_songs[random.randint(0, len(the_songs)-1)]
+    first_song = the_songs[1]
+    second_song = the_songs[3]
 
     seen = set()
     seen_add = seen.add
@@ -277,7 +277,12 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
                 flag = False
                 info = cur_list[random.randint(0, len(cur_list)-1)]
                 for j in range(len(total_info)):
-                    if info['song_handle'].artist_name == total_info[j]['song_handle'].artist_name:
+                    try:
+                        if info['song_handle'].artist_name == total_info[j]['song_handle'].artist_name:
+                            counter += 1
+                            if counter < 100:
+                                flag = True
+                    except:
                         counter += 1
                         if counter < 100:
                             flag = True
@@ -308,8 +313,13 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     total_res = [[first_song.title, artist_name]]
 
     for i in range(len(total_info)):
-        total_res.append([total_info[i]['song_handle'].title,
+    	try:
+            total_res.append([total_info[i]['song_handle'].title,
                           total_info[i]['song_handle'].artist_name])
+        except:
+        	pass
+
+    total_res.append([second_song.title, artist_name])
 
     #print "end time"
     #print time.time() - start_time
