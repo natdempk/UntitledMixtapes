@@ -181,7 +181,10 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     #print "artist get name"
     #print time.time() - start_time
     the_artist = artist.Artist(artist_name)
-    the_songs = sorted(the_artist.get_songs()[:5], key=lambda k: the_song_info[u'energy']-k.get_audio_summary()[u'energy'])
+    the_songs = sorted(the_artist.get_songs()[:10], key=lambda k: the_song_info[u'energy']-k.get_audio_summary()[u'energy'])
+    seen = set()
+    seen_add = seen.add
+    the_songs = [ x for x in the_songs if x not in seen and not seen_add(x)]
     #print "end"
     #print time.time() - start_time
 
