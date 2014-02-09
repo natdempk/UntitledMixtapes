@@ -204,6 +204,8 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
         tflag = False
         try:
             second_id = the_songs[n].get_tracks("spotify-WW")[0][u'foreign_id']
+            if second_id == first_id:
+            	Exception()
         except:
             tflag = True
             n += 1
