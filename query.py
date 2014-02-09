@@ -75,6 +75,10 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
             if m:
                 [k_sim_songs.append(m[random.randint(0, len(m)-1)]) for j in range(song_max)]
 
+    the_artist = artist.Artist(artist_name)
+    the_songs = the_artist.get_songs()[:5]
+    first_song = the_songs[random.randint(0, len(the_songs)-1)]
+
     seen = set()
     seen_add = seen.add
     sim_songs = [ x for x in sim_songs if x not in seen and not seen_add(x)]
@@ -165,7 +169,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
                             flag = True
             total_info.append(info)
 
-    total_res = []
+    total_res = [[first_song, the_artist]]
 
     for i in range(len(total_info)):
         total_res.append([total_info[i]['song_handle'].title,
