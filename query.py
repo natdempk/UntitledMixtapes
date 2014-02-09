@@ -16,11 +16,14 @@ class echoArtistThread(threading.Thread):
 
     def run(self):
         while True:
-            a = self.queue.get()
-            ar = artist.Artist(a)
-            l = ar.get_songs()
-            self.artist_list.append({'artist':ar,'songs':l})
-            self.queue.task_done()
+            try:
+                a = self.queue.get()
+                ar = artist.Artist(a)
+                l = ar.get_songs()
+                self.artist_list.append({'artist':ar,'songs':l})
+                self.queue.task_done()
+            except:
+                self.queue.task_done()
 
 class echoThread(threading.Thread):
     def __init__(self, queue, songs_list):
@@ -30,9 +33,12 @@ class echoThread(threading.Thread):
 
     def run(self):
         while True:
-            s = self.queue.get() # get artist from queue
-            self.songs_list.append(s.get_audio_summary())
-            self.queue.task_done()
+            try:
+                s = self.queue.get() # get artist from queue
+                self.songs_list.append(s.get_audio_summary())
+                self.queue.task_done()
+            except:
+                self.queue.task_done()
 
             #the_artist = artist.Artist(a)
             #songs = the_artist.get_songs()[:num_songs]
@@ -299,7 +305,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
                             flag = True
             total_info.append(info)
 
-    total_res = [[first_song, the_artist]]
+    total_res = [[first_song.title, artist_name]]
 
     for i in range(len(total_info)):
         total_res.append([total_info[i]['song_handle'].title,
