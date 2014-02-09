@@ -4,10 +4,13 @@
       <div class="starter-template">
         <h1>Your Playlist:</h1>
         <iframe src="https://embed.spotify.com/?uri={{ playlist_id }}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+        <iframe src="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:{{ embed_string }}" frameborder="0" allowtransparency="true"></iframe>
+
         <ol>
         {% for song, artist in tuples %}
         <li>{{ song }} - {{ artist }}</li>
         {% endfor %}
+        </ol>
       </div>
 
 {% endblock %}
