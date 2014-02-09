@@ -3,7 +3,6 @@ from flask import Flask, request, session, g, redirect, url_for, \
 import query
 import pyechonest
 import pylast
-#import create
 
 
 app = Flask(__name__)
@@ -43,5 +42,5 @@ def generate_playlist():
     return render_template('playlist.html', embed_string=embed_string, tuples=None)
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    #app.run()
+    #app.run(debug=True)
+    app.run()
