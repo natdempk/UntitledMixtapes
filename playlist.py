@@ -28,13 +28,11 @@ def generate_playlist():
         return render_template('index.html', error="Your artist was not found.")
     except IndexError:
         return render_template('index.html', error="Your track was not found.")
-    #print artist
-    #print track
-    #print bpm
-    #print diversity
-    #print tracks
+    except ValueError:
+        return render_template('index.html', error="Your track was not found.")
+    except:
+        return render_template('index.html', error="An unknown error has occurred. Try again later.")
     playlist_id = 'test'
-    #print tuples
     return render_template('playlist.html', playlist_id=playlist_id, tuples=tuples)
 
 if __name__ == '__main__':

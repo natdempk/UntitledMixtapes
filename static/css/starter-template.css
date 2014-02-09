@@ -27,7 +27,7 @@ body {
 }
 
 .input-group-addon {
-    min-width: 100px;
+    min-width: 110px;
     text-align: left;
 }
 
@@ -71,6 +71,7 @@ body {
   width: 500px;
   margin: 0 auto;
   display: block;
+  padding-bottom: 25px;
 }
 
 .error {
@@ -86,4 +87,27 @@ body {
   text-align: center;
   vertical-align: middle;
   line-height: 60px;
+}
+
+#left-slide {
+  width:50%;
+  float:left;
+}
+
+#right-slide {
+  width:50%;
+  float:right;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+  background: #FFFFFF #important;
+}
+
+#diversity-slider, #tracks-slider {
+  max-width: 80%;
+  margin-left: 10%;
+}
+
+#submitbutton {
+  margin-top: 50px;
 }
