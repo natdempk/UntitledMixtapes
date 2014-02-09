@@ -122,3 +122,7 @@ body {
 #submitbutton, #daspinnerid {
   margin-top: 50px;
 }
+
+.form-control {
+  border-width: 1px !important;
+}
