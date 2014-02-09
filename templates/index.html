@@ -51,7 +51,8 @@
         </form>
 
       </div>
-      <img class="mixtape" src="../static/images/mixtape.png" />
+      <img class="mixtape" id="mixtape" src="../static/images/mixtape.png" />
+      <img class="mixtape byebye" id="mixmove" src="../static/images/mixmove.gif" />
 
       <script>
       // check if jQuery loaded
@@ -105,9 +106,9 @@
     // button spinner on click
     $(function(){
       $('#submitbutton').click(function() {
-          $('#daspinnerid').toggleClass('gone');
-          $('#submitbutton').toggleClass('clicked');
           $('#submitbutton').attr('disabled', 'disabled');
+          $('#mixtape').toggleClass('byebye');
+          $('#mixmove').toggleClass('byebye');
           $('#playlist').delay(100).submit();
       });
     })

@@ -126,3 +126,7 @@ body {
 .form-control {
   border-width: 2px !important;
 }
+
+.byebye {
+  display: none;
+}
