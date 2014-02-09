@@ -30,8 +30,8 @@ def generate_playlist():
         return render_template('index.html', error="Your track was not found.")
     except ValueError:
         return render_template('index.html', error="Your track was not found.")
-    #except:
-        #return render_template('index.html', error="An unknown error has occurred. Try again later.")
+    except:
+        return render_template('index.html', error="An unknown error has occurred. Try again later.")
     playlist_id = 'test'
     return render_template('playlist.html', playlist_id=playlist_id, tuples=tuples)
 

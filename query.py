@@ -78,8 +78,11 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
 
     similar_artists = []
     # get a specified number of similar artists
-    [similar_artists.append(similar[i][0].get_name()) for i in range(len(similar))]
+    [similar_artists.append(similar[i][0].get_name()) for i in range(len(similar)) if not '&' in similar[i][0].get_name()]
+
     similar_artist_num = len(similar_artists)
+
+    print similar_artists
 
     if diversity: # get more kinda similar artists to mix in
         k_artistgrab = network.get_artist(similar_artists[0])
@@ -89,7 +92,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
         index = 0
         while len(k_similar_artists) < len(similar_artists):
             if index < last:
-                if not k_similar[index][0].get_name() in similar_artists:
+                if not k_similar[index][0].get_name() in similar_artists and k_similar[index][0].get_name() != artist_name:
                     k_similar_artists.append(k_similar[index][0].get_name())
                 index += 1
             else:
