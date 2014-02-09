@@ -186,23 +186,24 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     #print time.time() - start_time
 
     n = 0
+    tflag= True
 
     while tflag == True:
-    	tflag = False
-    	try:
-    		first_id = the_songs[n].get_tracks("spotify-WW")[0][u'foreign_id']
-    	except:
-    		tflag = True
-    		n += 1
+        tflag = False
+        try:
+            first_id = the_songs[n].get_tracks("spotify-WW")[0][u'foreign_id']
+        except:
+            tflag = True
+            n += 1
 
     tflag = True
-     while tflag == True:
-    	tflag = False
-    	try:
-    		second_id = the_songs[n].get_tracks("spotify-WW")[0][u'foreign_id']
-    	except:
-    		tflag = True
-    		n += 1
+    while tflag == True:
+        tflag = False
+        try:
+            second_id = the_songs[n].get_tracks("spotify-WW")[0][u'foreign_id']
+        except:
+            tflag = True
+            n += 1
 
     seen = set()
     seen_add = seen.add
