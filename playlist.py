@@ -39,7 +39,7 @@ def generate_playlist():
     embed_string = ",".join(track_ids2)
     #print track_ids
     #print embed_string
-    return render_template('playlist.html', embed_string=embed_string, tuples=None)
+    return render_template('playlist.html', embed_string=embed_string, artist=artist, track=track)
 
 if __name__ == '__main__':
     #app.run(debug=True)
