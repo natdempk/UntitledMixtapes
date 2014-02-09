@@ -1,0 +1,2013 @@
+libspotify trace from 12.1.51.g86c92b43 Release Linux-x86_64 
+
+< sp_session_create() = 0
+> sp_session_login(0x2212390 'natdempk' '<hidden>' 0) on 0x7fb0cd0cf700
+> sp_session_process_events(0x2212390 0x235bf40) on 0x7fb0cd0cf700
+< sp_session_process_events() = 66
+> sp_session_user(0x2212390) on 0x7fb0cd0cf700
+< sp_session_user() = 0x226ffd0
+> sp_link_create_from_user(0x226ffd0) on 0x7fb0cd0cf700
+> sp_user_canonical_name(0x226ffd0) on 0x7fb0cd0cf700
+< sp_user_canonical_name() = natdempk
+< sp_link_create_from_user() = 0x1cfb850 'spotify:user:natdempk'
+> sp_link_add_ref(0x1cfb850) on 0x7fb0cd0cf700
+> sp_link_as_string(0x1cfb850 0x1ddd4e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 21
+> sp_link_as_string(0x1cfb850 0x1dece70 22) on 0x7fb0cd0cf700
+< sp_link_as_string() = 21
+> sp_link_release(0x1cfb850) on 0x7fb0cd0cf700
+> sp_session_logout(0x2212390) on 0x7fb0cd0cf700
+> sp_session_process_events(0x2212390 0x235b4f8) on 0x7fb0cd0cf700
+< sp_session_process_events() = 216195
+> sp_session_login(0x2212390 'natdempk' '<hidden>' 1) on 0x7fb0cd0cf700
+> sp_session_process_events(0x2212390 0x235bf40) on 0x7fb0cd0cf700
+< sp_session_process_events() = 68
+> sp_search_create(0x2212390 artist:Nero title:Innocence 0 20 0 20 0 20 0 20 0 0x7fb0cd0eea80 0x7fb0c982e0fe) on 0x7fb0cd0cf700
+< sp_search_create() = 0x1f5acc0
+> sp_session_user(0x2212390) on 0x7fb0cd0cf700
+< sp_session_user() = 0x226ffd0
+> sp_search_is_loaded(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_is_loaded() = 0
+> sp_session_process_events(0x2212390 0x235bf40) on 0x7fb0cd0cf700
+< sp_session_process_events() = 252
+> sp_search_error(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_error() = 17
+> sp_search_is_loaded(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_is_loaded() = 0
+> sp_session_process_events(0x2212390 0x235bf40) on 0x7fb0cd0cf700
+< sp_session_process_events() = 249
+> sp_search_error(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_error() = 0
+> sp_search_is_loaded(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_is_loaded() = 1
+> sp_search_error(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_error() = 0
+> sp_link_create_from_search(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_link_create_from_search() = 0x2092ab0 'spotify:search:artist%3aNero+title%3aInnocence'
+> sp_link_add_ref(0x2092ab0) on 0x7fb0cd0cf700
+> sp_link_as_string(0x2092ab0 0x1dddce0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 46
+> sp_link_as_string(0x2092ab0 0x21d2fc0 47) on 0x7fb0cd0cf700
+< sp_link_as_string() = 46
+> sp_link_release(0x2092ab0) on 0x7fb0cd0cf700
+> sp_search_error(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_error() = 0
+> sp_search_is_loaded(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_is_loaded() = 1
+> sp_search_add_ref(0x1f5acc0) on 0x7fb0cd0cf700
+> sp_search_num_tracks(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_num_tracks() = 2
+> sp_search_num_tracks(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_num_tracks() = 2
+> sp_search_track(0x1f5acc0 0) on 0x7fb0cd0cf700
+< sp_search_track() = 0x2289fb0
+> sp_track_add_ref(0x2289fb0) on 0x7fb0cd0cf700
+> sp_search_num_tracks(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_num_tracks() = 2
+> sp_search_track(0x1f5acc0 1) on 0x7fb0cd0cf700
+< sp_search_track() = 0x228a450
+> sp_track_add_ref(0x228a450) on 0x7fb0cd0cf700
+> sp_search_num_tracks(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_num_tracks() = 2
+> sp_link_create_from_track(0x2289fb0 0) on 0x7fb0cd0cf700
+< sp_link_create_from_track() = 0x1f614f0 'spotify:track:1HoV86Z02IGN7GMdcfVyGh'
+> sp_link_add_ref(0x1f614f0) on 0x7fb0cd0cf700
+> sp_link_as_string(0x1f614f0 0x1ddd3a0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_as_string(0x1f614f0 0x1fa9950 37) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_release(0x1f614f0) on 0x7fb0cd0cf700
+> sp_link_create_from_track(0x228a450 0) on 0x7fb0cd0cf700
+< sp_link_create_from_track() = 0x1d5e7a0 'spotify:track:31BPnapcrlqpPxMx2GRabp'
+> sp_link_add_ref(0x1d5e7a0) on 0x7fb0cd0cf700
+> sp_link_as_string(0x1d5e7a0 0x1ddd3a0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_as_string(0x1d5e7a0 0x1fa99a8 37) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_release(0x1d5e7a0) on 0x7fb0cd0cf700
+> sp_link_create_from_track(0x2289fb0 0) on 0x7fb0cd0cf700
+< sp_link_create_from_track() = 0x228ab10 'spotify:track:1HoV86Z02IGN7GMdcfVyGh'
+> sp_link_add_ref(0x228ab10) on 0x7fb0cd0cf700
+> sp_link_as_string(0x228ab10 0x1dddae0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_as_string(0x228ab10 0x1fa99a8 37) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_release(0x228ab10) on 0x7fb0cd0cf700
+> sp_link_create_from_track(0x228a450 0) on 0x7fb0cd0cf700
+< sp_link_create_from_track() = 0x2092330 'spotify:track:31BPnapcrlqpPxMx2GRabp'
+> sp_link_add_ref(0x2092330) on 0x7fb0cd0cf700
+> sp_link_as_string(0x2092330 0x1ddd3a0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_as_string(0x2092330 0x1fa9848 37) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_release(0x2092330) on 0x7fb0cd0cf700
+> sp_track_release(0x228a450) on 0x7fb0cd0cf700
+> sp_track_release(0x2289fb0) on 0x7fb0cd0cf700
+> sp_search_error(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_error() = 0
+> sp_search_is_loaded(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_is_loaded() = 1
+> sp_search_add_ref(0x1f5acc0) on 0x7fb0cd0cf700
+> sp_search_num_tracks(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_num_tracks() = 2
+> sp_search_track(0x1f5acc0 0) on 0x7fb0cd0cf700
+< sp_search_track() = 0x2289fb0
+> sp_track_add_ref(0x2289fb0) on 0x7fb0cd0cf700
+> sp_track_error(0x2289fb0) on 0x7fb0cd0cf700
+< sp_track_error() = 0
+> sp_track_name(0x2289fb0) on 0x7fb0cd0cf700
+< sp_track_name() = Innocence
+> sp_search_num_tracks(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_num_tracks() = 2
+> sp_search_track(0x1f5acc0 1) on 0x7fb0cd0cf700
+< sp_search_track() = 0x228a450
+> sp_track_add_ref(0x228a450) on 0x7fb0cd0cf700
+> sp_track_release(0x2289fb0) on 0x7fb0cd0cf700
+> sp_track_error(0x228a450) on 0x7fb0cd0cf700
+< sp_track_error() = 0
+> sp_track_name(0x228a450) on 0x7fb0cd0cf700
+< sp_track_name() = Innocence
+> sp_search_num_tracks(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_num_tracks() = 2
+> sp_session_playlistcontainer(0x2212390) on 0x7fb0cd0cf700
+< sp_session_playlistcontainer() = 0x1e85e50
+> sp_playlistcontainer_add_ref(0x1e85e50) on 0x7fb0cd0cf700
+> sp_playlistcontainer_add_callbacks(0x1e85e50 0x1facc40 (nil)) on 0x7fb0cd0cf700
+< sp_playlistcontainer_add_callbacks() = 
+> sp_playlistcontainer_is_loaded(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_is_loaded() = 1
+> sp_playlistcontainer_owner(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_owner() = 0x226ffd0
+> sp_link_create_from_user(0x226ffd0) on 0x7fb0cd0cf700
+> sp_user_canonical_name(0x226ffd0) on 0x7fb0cd0cf700
+< sp_user_canonical_name() = natdempk
+< sp_link_create_from_user() = 0x2096020 'spotify:user:natdempk'
+> sp_link_add_ref(0x2096020) on 0x7fb0cd0cf700
+> sp_link_as_string(0x2096020 0x1ddd3a0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 21
+> sp_link_as_string(0x2096020 0x7fb0c982c4e0 22) on 0x7fb0cd0cf700
+< sp_link_as_string() = 21
+> sp_link_release(0x2096020) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 0) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 0) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x2099620
+> sp_playlist_add_ref(0x2099620) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 1) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 1) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209a7f0
+> sp_playlist_add_ref(0x209a7f0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 2) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 1
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 2) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 2 0x1fa3228 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 3) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 3) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209a900
+> sp_playlist_add_ref(0x209a900) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 4) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 2
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 4) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 4 0x1fa3228 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 5) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 5) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209ab80
+> sp_playlist_add_ref(0x209ab80) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 6) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 1
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 6) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 6 0x1fa3228 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 7) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 7) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209bb10
+> sp_playlist_add_ref(0x209bb10) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 8) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 8) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209bd70
+> sp_playlist_add_ref(0x209bd70) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 9) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 2
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 9) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 9 0x1fa3228 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 10) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 10) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209bed0
+> sp_playlist_add_ref(0x209bed0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 11) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 11) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c1d0
+> sp_playlist_add_ref(0x209c1d0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 12) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 12) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c330
+> sp_playlist_add_ref(0x209c330) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 13) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 13) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c570
+> sp_playlist_add_ref(0x209c570) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 14) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 14) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c740
+> sp_playlist_add_ref(0x209c740) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 15) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 15) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c0a0
+> sp_playlist_add_ref(0x209c0a0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 16) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 16) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209cba0
+> sp_playlist_add_ref(0x209cba0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 17) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 17) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209cda0
+> sp_playlist_add_ref(0x209cda0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 18) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 18) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209cf70
+> sp_playlist_add_ref(0x209cf70) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 19) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 19) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209d140
+> sp_playlist_add_ref(0x209d140) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 20) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 20) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209d310
+> sp_playlist_add_ref(0x209d310) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 21) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 21) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c910
+> sp_playlist_add_ref(0x209c910) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 22) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 22) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209d840
+> sp_playlist_add_ref(0x209d840) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 23) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 23) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209da40
+> sp_playlist_add_ref(0x209da40) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 24) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 24) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209dc10
+> sp_playlist_add_ref(0x209dc10) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlist_is_loaded(0x2099620) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209a7f0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209a900) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209ab80) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bb10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bd70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bed0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c1d0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c330) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c570) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c740) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c0a0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cba0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cda0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cf70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d140) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d310) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c910) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209da40) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209dc10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x2099620) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209a7f0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209a900) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209ab80) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bb10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bd70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bed0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c1d0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c330) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c570) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c740) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c0a0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cba0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cda0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cf70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d140) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d310) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c910) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209da40) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209dc10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_release(0x209dc10) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209da40) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209d840) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c910) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209d310) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209d140) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209cf70) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209cda0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209cba0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c0a0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c740) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c570) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c330) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c1d0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209bed0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209bd70) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209bb10) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209ab80) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209a900) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209a7f0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x2099620) on 0x7fb0cd0cf700
+> sp_playlistcontainer_owner(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_owner() = 0x226ffd0
+> sp_link_create_from_user(0x226ffd0) on 0x7fb0cd0cf700
+> sp_user_canonical_name(0x226ffd0) on 0x7fb0cd0cf700
+< sp_user_canonical_name() = natdempk
+< sp_link_create_from_user() = 0x2095460 'spotify:user:natdempk'
+> sp_link_add_ref(0x2095460) on 0x7fb0cd0cf700
+> sp_link_as_string(0x2095460 0x1ddd9e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 21
+> sp_link_as_string(0x2095460 0x7fb0c982cb10 22) on 0x7fb0cd0cf700
+< sp_link_as_string() = 21
+> sp_link_release(0x2095460) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 0) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 0) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x2099620
+> sp_playlist_add_ref(0x2099620) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 1) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 1) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209a7f0
+> sp_playlist_add_ref(0x209a7f0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 2) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 1
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 2) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 2 0x1fa3228 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 3) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 3) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209a900
+> sp_playlist_add_ref(0x209a900) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 4) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 2
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 4) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 4 0x1fa3228 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 5) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 5) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209ab80
+> sp_playlist_add_ref(0x209ab80) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 6) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 1
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 6) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 6 0x1fa3228 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 7) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 7) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209bb10
+> sp_playlist_add_ref(0x209bb10) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 8) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 8) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209bd70
+> sp_playlist_add_ref(0x209bd70) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 9) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 2
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 9) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 9 0x1fa3228 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 10) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 10) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209bed0
+> sp_playlist_add_ref(0x209bed0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 11) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 11) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c1d0
+> sp_playlist_add_ref(0x209c1d0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 12) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 12) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c330
+> sp_playlist_add_ref(0x209c330) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 13) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 13) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c570
+> sp_playlist_add_ref(0x209c570) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 14) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 14) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c740
+> sp_playlist_add_ref(0x209c740) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 15) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 15) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c0a0
+> sp_playlist_add_ref(0x209c0a0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 16) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 16) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209cba0
+> sp_playlist_add_ref(0x209cba0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 17) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 17) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209cda0
+> sp_playlist_add_ref(0x209cda0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 18) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 18) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209cf70
+> sp_playlist_add_ref(0x209cf70) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 19) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 19) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209d140
+> sp_playlist_add_ref(0x209d140) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 20) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 20) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209d310
+> sp_playlist_add_ref(0x209d310) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 21) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 21) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c910
+> sp_playlist_add_ref(0x209c910) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 22) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 22) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209d840
+> sp_playlist_add_ref(0x209d840) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 23) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 23) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209da40
+> sp_playlist_add_ref(0x209da40) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 24) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 24) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209dc10
+> sp_playlist_add_ref(0x209dc10) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlist_is_loaded(0x2099620) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209a7f0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209a900) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209ab80) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bb10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bd70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bed0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c1d0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c330) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c570) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c740) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c0a0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cba0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cda0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cf70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d140) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d310) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c910) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209da40) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209dc10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x2099620) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209a7f0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209a900) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209ab80) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bb10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bd70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bed0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c1d0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c330) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c570) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c740) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c0a0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cba0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cda0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cf70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d140) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d310) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c910) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209da40) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209dc10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_release(0x209dc10) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209da40) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209d840) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c910) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209d310) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209d140) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209cf70) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209cda0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209cba0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c0a0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c740) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c570) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c330) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c1d0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209bed0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209bd70) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209bb10) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209ab80) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209a900) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209a7f0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x2099620) on 0x7fb0cd0cf700
+> sp_session_user(0x2212390) on 0x7fb0cd0cf700
+< sp_session_user() = 0x226ffd0
+> sp_playlistcontainer_is_loaded(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_is_loaded() = 1
+> sp_playlistcontainer_owner(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_owner() = 0x226ffd0
+> sp_link_create_from_user(0x226ffd0) on 0x7fb0cd0cf700
+> sp_user_canonical_name(0x226ffd0) on 0x7fb0cd0cf700
+< sp_user_canonical_name() = natdempk
+< sp_link_create_from_user() = 0x1d92010 'spotify:user:natdempk'
+> sp_link_add_ref(0x1d92010) on 0x7fb0cd0cf700
+> sp_link_as_string(0x1d92010 0x1ddd920 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 21
+> sp_link_as_string(0x1d92010 0x7fb0c982c720 22) on 0x7fb0cd0cf700
+< sp_link_as_string() = 21
+> sp_link_release(0x1d92010) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 0) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 0) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x2099620
+> sp_playlist_add_ref(0x2099620) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 1) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 1) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209a7f0
+> sp_playlist_add_ref(0x209a7f0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 2) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 1
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 2) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 2 0x1fa3228 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 3) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 3) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209a900
+> sp_playlist_add_ref(0x209a900) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 4) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 2
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 4) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 4 0x1fa3228 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 5) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 5) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209ab80
+> sp_playlist_add_ref(0x209ab80) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 6) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 1
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 6) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 6 0x1fa3228 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 7) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 7) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209bb10
+> sp_playlist_add_ref(0x209bb10) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 8) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 8) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209bd70
+> sp_playlist_add_ref(0x209bd70) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 9) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 2
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 9) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 9 0x1fa3228 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 10) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 10) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209bed0
+> sp_playlist_add_ref(0x209bed0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 11) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 11) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c1d0
+> sp_playlist_add_ref(0x209c1d0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 12) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 12) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c330
+> sp_playlist_add_ref(0x209c330) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 13) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 13) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c570
+> sp_playlist_add_ref(0x209c570) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 14) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 14) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c740
+> sp_playlist_add_ref(0x209c740) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 15) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 15) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c0a0
+> sp_playlist_add_ref(0x209c0a0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 16) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 16) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209cba0
+> sp_playlist_add_ref(0x209cba0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 17) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 17) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209cda0
+> sp_playlist_add_ref(0x209cda0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 18) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 18) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209cf70
+> sp_playlist_add_ref(0x209cf70) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 19) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 19) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209d140
+> sp_playlist_add_ref(0x209d140) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 20) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 20) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209d310
+> sp_playlist_add_ref(0x209d310) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 21) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 21) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c910
+> sp_playlist_add_ref(0x209c910) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 22) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 22) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209d840
+> sp_playlist_add_ref(0x209d840) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 23) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 23) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209da40
+> sp_playlist_add_ref(0x209da40) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 24) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 24) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209dc10
+> sp_playlist_add_ref(0x209dc10) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlist_is_loaded(0x2099620) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209a7f0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209a900) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209ab80) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bb10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bd70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bed0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c1d0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c330) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c570) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c740) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c0a0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cba0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cda0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cf70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d140) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d310) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c910) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209da40) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209dc10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x2099620) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209a7f0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209a900) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209ab80) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bb10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bd70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209bed0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c1d0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c330) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c570) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c740) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c0a0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cba0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cda0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209cf70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d140) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d310) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209c910) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209d840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209da40) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_is_loaded(0x209dc10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_playlist_release(0x209dc10) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209da40) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209d840) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c910) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209d310) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209d140) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209cf70) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209cda0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209cba0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c0a0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c740) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c570) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c330) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c1d0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209bed0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209bd70) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209bb10) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209ab80) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209a900) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209a7f0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x2099620) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 0) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 0) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x2099620
+> sp_playlist_add_ref(0x2099620) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x2099620) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 0
+> sp_session_process_events(0x2212390 0x235b4f8) on 0x7fb0cd0cf700
+< sp_session_process_events() = 1009
+> sp_playlist_release(0x2099620) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 25
+> sp_playlistcontainer_playlist_type(0x1e85e50 0) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 0) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x2099620
+> sp_playlist_add_ref(0x2099620) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x2099620) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x2099620) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x2099620) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2092840 'spotify:user:natdempk:playlist:2n5CezBQDBh29PB52LDue3'
+> sp_link_as_string(0x2092840 0x1dddb60 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2092840 0x21d0d60 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2092840) on 0x7fb0cd0cf700
+> sp_playlistcontainer_add_new_playlist(0x1e85e50 test mix playlist) on 0x7fb0cd0cf700
+> pchPlaylistWillBeAdded(0x233dbd0 1 0x2092840 25) on 0x7fb0cd0cf700
+< pchPlaylistWillBeAdded() = 
+> pchPlaylistAdded(0x233dbd0 1 0x2092840 25) on 0x7fb0cd0cf700
+< pchPlaylistAdded() = 
+< sp_playlistcontainer_add_new_playlist() = 0x2092840
+> sp_playlist_add_ref(0x2092840) on 0x7fb0cd0cf700
+> sp_session_process_events(0x2212390 0x235bf08) on 0x7fb0cd0cf700
+< sp_session_process_events() = 1001
+> sp_playlist_release(0x2099620) on 0x7fb0cd0cf700
+> sp_session_user(0x2212390) on 0x7fb0cd0cf700
+< sp_session_user() = 0x226ffd0
+> sp_playlistcontainer_is_loaded(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_is_loaded() = 1
+> sp_playlistcontainer_owner(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_owner() = 0x226ffd0
+> sp_link_create_from_user(0x226ffd0) on 0x7fb0cd0cf700
+> sp_user_canonical_name(0x226ffd0) on 0x7fb0cd0cf700
+< sp_user_canonical_name() = natdempk
+< sp_link_create_from_user() = 0x2098c20 'spotify:user:natdempk'
+> sp_link_add_ref(0x2098c20) on 0x7fb0cd0cf700
+> sp_link_as_string(0x2098c20 0x1ddd9e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 21
+> sp_link_as_string(0x2098c20 0x7fb0c982cd50 22) on 0x7fb0cd0cf700
+< sp_link_as_string() = 21
+> sp_link_release(0x2098c20) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 0) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 0) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x2099620
+> sp_playlist_add_ref(0x2099620) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 1) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 1) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209a7f0
+> sp_playlist_add_ref(0x209a7f0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 2) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 1
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 2) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 2 0x1fa32c0 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 3) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 3) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209a900
+> sp_playlist_add_ref(0x209a900) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 4) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 2
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 4) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 4 0x1fa32c0 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 5) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 5) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209ab80
+> sp_playlist_add_ref(0x209ab80) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 6) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 1
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 6) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 6 0x1fa32c0 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 7) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 7) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209bb10
+> sp_playlist_add_ref(0x209bb10) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 8) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 8) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209bd70
+> sp_playlist_add_ref(0x209bd70) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 9) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 2
+> sp_playlistcontainer_playlist_folder_id(0x1e85e50 9) on 0x7fb0cd0cf700
+> sp_playlistcontainer_playlist_folder_name(0x1e85e50 9 0x1fa32c0 100) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_folder_name() = 0
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 10) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 10) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209bed0
+> sp_playlist_add_ref(0x209bed0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 11) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 11) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c1d0
+> sp_playlist_add_ref(0x209c1d0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 12) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 12) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c330
+> sp_playlist_add_ref(0x209c330) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 13) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 13) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c570
+> sp_playlist_add_ref(0x209c570) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 14) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 14) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c740
+> sp_playlist_add_ref(0x209c740) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 15) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 15) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c0a0
+> sp_playlist_add_ref(0x209c0a0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 16) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 16) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209cba0
+> sp_playlist_add_ref(0x209cba0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 17) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 17) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209cda0
+> sp_playlist_add_ref(0x209cda0) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 18) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 18) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209cf70
+> sp_playlist_add_ref(0x209cf70) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 19) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 19) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209d140
+> sp_playlist_add_ref(0x209d140) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 20) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 20) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209d310
+> sp_playlist_add_ref(0x209d310) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 21) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 21) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209c910
+> sp_playlist_add_ref(0x209c910) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 22) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 22) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209d840
+> sp_playlist_add_ref(0x209d840) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 23) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 23) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209da40
+> sp_playlist_add_ref(0x209da40) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 24) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 24) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x209dc10
+> sp_playlist_add_ref(0x209dc10) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 25) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 25) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x2092840
+> sp_playlist_add_ref(0x2092840) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlist_is_loaded(0x2099620) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x2099620) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x2099620) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2206720 'spotify:user:natdempk:playlist:2n5CezBQDBh29PB52LDue3'
+> sp_link_as_string(0x2206720 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2206720 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2206720) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209a7f0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209a7f0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209a7f0) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:3Fj7NG4lkGA4a3CQtzpYyA'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x21d0e30 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209a900) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209a900) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209a900) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2206720 'spotify:user:natdempk:playlist:1kKPQLEKWe0FHwEJT72o5K'
+> sp_link_as_string(0x2206720 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2206720 0x21d0e98 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2206720) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209ab80) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209ab80) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209ab80) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:4MoOV2eheI91UTHPMF6e3A'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x21d0f00 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209bb10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209bb10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209bb10) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2206720 'spotify:user:natdempk:playlist:4g0JqsnryWfEi43uDha69s'
+> sp_link_as_string(0x2206720 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2206720 0x21d0f68 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2206720) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209bd70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209bd70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209bd70) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:6AByQpyjH3Kf2lYCk38wSY'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x1fb3060 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209bed0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209bed0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209bed0) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2206720 'spotify:user:natdempk:playlist:6PHwwHC4YQUtl8nwwSLR6a'
+> sp_link_as_string(0x2206720 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2206720 0x1fb30c8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2206720) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209c1d0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209c1d0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209c1d0) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:0uYGfTYbvlrTgrd6Zyw1tT'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x1fb3130 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209c330) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209c330) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209c330) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2206720 'spotify:user:natdempk:playlist:7L2USvxQ3xF24crX7SnYVT'
+> sp_link_as_string(0x2206720 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2206720 0x1fb3198 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2206720) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209c570) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209c570) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209c570) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:15W5hC5XK834iL6yj7P7yJ'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x1fb3200 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209c740) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209c740) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209c740) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2206720 'spotify:user:natdempk:playlist:0KG7wE1S8ifeXJHbyWruAo'
+> sp_link_as_string(0x2206720 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2206720 0x1fb3268 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2206720) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209c0a0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209c0a0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209c0a0) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:6Z0eEB9sa7Mr872sCHDGKL'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x1fb32d0 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209cba0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209cba0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209cba0) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2206720 'spotify:user:natdempk:playlist:2ycW2m3mbqLXzJCIfmqwDh'
+> sp_link_as_string(0x2206720 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2206720 0x1fb3338 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2206720) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209cda0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209cda0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209cda0) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:0kCwDeeuOpcoizUVBr9Dm9'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x1fb33a0 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209cf70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209cf70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209cf70) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2206720 'spotify:user:natdempk:playlist:0rZkE6tPhyP8kZa8RKmOSd'
+> sp_link_as_string(0x2206720 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2206720 0x1fb3408 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2206720) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209d140) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209d140) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209d140) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:2IByfiYtX1Y2TS8tSg0ieV'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x1fb3470 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209d310) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209d310) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209d310) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2206720 'spotify:user:natdempk:playlist:3NU9kqEVC6OE0SOho0wdZE'
+> sp_link_as_string(0x2206720 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2206720 0x1fb34d8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2206720) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209c910) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209c910) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209c910) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:46pVY4SHCPDoTAj5azCeXM'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x1fb3540 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209d840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209d840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209d840) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2206720 'spotify:user:natdempk:playlist:7IZZi6YKnGaxWf461BGgkS'
+> sp_link_as_string(0x2206720 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2206720 0x1fb35a8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2206720) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209da40) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209da40) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209da40) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:7F3YyP8fApKDxWwzkFPcWU'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x1fb3610 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209dc10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209dc10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209dc10) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2206720 'spotify:user:natdempk:playlist:0iLRbxtgpnG6FGONK9Vicf'
+> sp_link_as_string(0x2206720 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2206720 0x1fb3678 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2206720) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x2092840) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:47wPj2zw9lzMcvfdtU478m'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x1fb36e0 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x2099620) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x2099620) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x2099620) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2206720 'spotify:user:natdempk:playlist:2n5CezBQDBh29PB52LDue3'
+> sp_link_as_string(0x2206720 0x1fb6320 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2206720 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2206720) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209a7f0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209a7f0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209a7f0) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:3Fj7NG4lkGA4a3CQtzpYyA'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209a900) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209a900) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209a900) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2206720 'spotify:user:natdempk:playlist:1kKPQLEKWe0FHwEJT72o5K'
+> sp_link_as_string(0x2206720 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2206720 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2206720) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209ab80) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209ab80) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209ab80) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:4MoOV2eheI91UTHPMF6e3A'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209bb10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209bb10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209bb10) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2200330 'spotify:user:natdempk:playlist:4g0JqsnryWfEi43uDha69s'
+> sp_link_as_string(0x2200330 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2200330 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2200330) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209bd70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209bd70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209bd70) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:6AByQpyjH3Kf2lYCk38wSY'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209bed0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209bed0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209bed0) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2200330 'spotify:user:natdempk:playlist:6PHwwHC4YQUtl8nwwSLR6a'
+> sp_link_as_string(0x2200330 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2200330 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2200330) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209c1d0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209c1d0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209c1d0) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:0uYGfTYbvlrTgrd6Zyw1tT'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209c330) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209c330) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209c330) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2200330 'spotify:user:natdempk:playlist:7L2USvxQ3xF24crX7SnYVT'
+> sp_link_as_string(0x2200330 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2200330 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2200330) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209c570) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209c570) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209c570) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:15W5hC5XK834iL6yj7P7yJ'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209c740) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209c740) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209c740) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2200330 'spotify:user:natdempk:playlist:0KG7wE1S8ifeXJHbyWruAo'
+> sp_link_as_string(0x2200330 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2200330 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2200330) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209c0a0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209c0a0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209c0a0) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:6Z0eEB9sa7Mr872sCHDGKL'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209cba0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209cba0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209cba0) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2200330 'spotify:user:natdempk:playlist:2ycW2m3mbqLXzJCIfmqwDh'
+> sp_link_as_string(0x2200330 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2200330 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2200330) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209cda0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209cda0) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209cda0) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:0kCwDeeuOpcoizUVBr9Dm9'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209cf70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209cf70) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209cf70) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2200330 'spotify:user:natdempk:playlist:0rZkE6tPhyP8kZa8RKmOSd'
+> sp_link_as_string(0x2200330 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2200330 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2200330) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209d140) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209d140) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209d140) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:2IByfiYtX1Y2TS8tSg0ieV'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209d310) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209d310) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209d310) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2200330 'spotify:user:natdempk:playlist:3NU9kqEVC6OE0SOho0wdZE'
+> sp_link_as_string(0x2200330 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2200330 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2200330) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209c910) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209c910) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209c910) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:46pVY4SHCPDoTAj5azCeXM'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209d840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209d840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209d840) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2200330 'spotify:user:natdempk:playlist:7IZZi6YKnGaxWf461BGgkS'
+> sp_link_as_string(0x2200330 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2200330 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2200330) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209da40) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209da40) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209da40) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:7F3YyP8fApKDxWwzkFPcWU'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x209dc10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x209dc10) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x209dc10) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2200330 'spotify:user:natdempk:playlist:0iLRbxtgpnG6FGONK9Vicf'
+> sp_link_as_string(0x2200330 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2200330 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2200330) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x2092840) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289f20 'spotify:user:natdempk:playlist:47wPj2zw9lzMcvfdtU478m'
+> sp_link_as_string(0x2289f20 0x1fb68e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289f20 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209dc10) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209da40) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209d840) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c910) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209d310) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209d140) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209cf70) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209cda0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209cba0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c0a0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c740) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c570) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c330) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209c1d0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209bed0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209bd70) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209bb10) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209ab80) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209a900) on 0x7fb0cd0cf700
+> sp_playlist_release(0x209a7f0) on 0x7fb0cd0cf700
+> sp_playlist_release(0x2099620) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 25) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 25) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x2092840
+> sp_playlist_add_ref(0x2092840) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x2092840) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2200330 'spotify:user:natdempk:playlist:47wPj2zw9lzMcvfdtU478m'
+> sp_link_as_string(0x2200330 0x1fb6060 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2200330 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2200330) on 0x7fb0cd0cf700
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_num_playlists(0x1e85e50) on 0x7fb0cd0cf700
+< sp_playlistcontainer_num_playlists() = 26
+> sp_playlistcontainer_playlist_type(0x1e85e50 25) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist_type() = 0
+> sp_playlistcontainer_playlist(0x1e85e50 25) on 0x7fb0cd0cf700
+< sp_playlistcontainer_playlist() = 0x2092840
+> sp_playlist_add_ref(0x2092840) on 0x7fb0cd0cf700
+> sp_playlist_name(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_name() = test mix playlist
+> sp_playlist_name(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_name() = test mix playlist
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_add_ref(0x2092840) on 0x7fb0cd0cf700
+> sp_playlist_num_tracks(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_num_tracks() = 0
+> sp_playlist_num_tracks(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_num_tracks() = 0
+> sp_search_error(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_error() = 0
+> sp_search_is_loaded(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_is_loaded() = 1
+> sp_search_add_ref(0x1f5acc0) on 0x7fb0cd0cf700
+> sp_search_num_tracks(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_num_tracks() = 2
+> sp_search_num_tracks(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_num_tracks() = 2
+> sp_search_track(0x1f5acc0 0) on 0x7fb0cd0cf700
+< sp_search_track() = 0x2289fb0
+> sp_track_add_ref(0x2289fb0) on 0x7fb0cd0cf700
+> sp_search_num_tracks(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_num_tracks() = 2
+> sp_search_track(0x1f5acc0 1) on 0x7fb0cd0cf700
+< sp_search_track() = 0x228a450
+> sp_track_add_ref(0x228a450) on 0x7fb0cd0cf700
+> sp_search_num_tracks(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_num_tracks() = 2
+> sp_link_create_from_track(0x2289fb0 0) on 0x7fb0cd0cf700
+< sp_link_create_from_track() = 0x2200330 'spotify:track:1HoV86Z02IGN7GMdcfVyGh'
+> sp_link_add_ref(0x2200330) on 0x7fb0cd0cf700
+> sp_link_as_string(0x2200330 0x1fb6520 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_as_string(0x2200330 0x1fa98f8 37) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_release(0x2200330) on 0x7fb0cd0cf700
+> sp_link_create_from_track(0x228a450 0) on 0x7fb0cd0cf700
+< sp_link_create_from_track() = 0x2206720 'spotify:track:31BPnapcrlqpPxMx2GRabp'
+> sp_link_add_ref(0x2206720) on 0x7fb0cd0cf700
+> sp_link_as_string(0x2206720 0x1fb6520 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_as_string(0x2206720 0x1fa9ab0 37) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_release(0x2206720) on 0x7fb0cd0cf700
+> sp_link_create_from_track(0x2289fb0 0) on 0x7fb0cd0cf700
+< sp_link_create_from_track() = 0x2289f20 'spotify:track:1HoV86Z02IGN7GMdcfVyGh'
+> sp_link_add_ref(0x2289f20) on 0x7fb0cd0cf700
+> sp_link_as_string(0x2289f20 0x1fb61e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_as_string(0x2289f20 0x1fa9ab0 37) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_release(0x2289f20) on 0x7fb0cd0cf700
+> sp_link_create_from_track(0x228a450 0) on 0x7fb0cd0cf700
+< sp_link_create_from_track() = 0x220ab30 'spotify:track:31BPnapcrlqpPxMx2GRabp'
+> sp_link_add_ref(0x220ab30) on 0x7fb0cd0cf700
+> sp_link_as_string(0x220ab30 0x1fb6520 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_as_string(0x220ab30 0x1fa99a8 37) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_release(0x220ab30) on 0x7fb0cd0cf700
+> sp_track_release(0x2289fb0) on 0x7fb0cd0cf700
+> sp_search_error(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_error() = 0
+> sp_search_is_loaded(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_is_loaded() = 1
+> sp_search_add_ref(0x1f5acc0) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_add_ref(0x2092840) on 0x7fb0cd0cf700
+> sp_playlist_num_tracks(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_num_tracks() = 0
+> sp_search_num_tracks(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_num_tracks() = 2
+> sp_search_track(0x1f5acc0 0) on 0x7fb0cd0cf700
+< sp_search_track() = 0x2289fb0
+> sp_track_add_ref(0x2289fb0) on 0x7fb0cd0cf700
+> sp_search_num_tracks(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_num_tracks() = 2
+> sp_search_track(0x1f5acc0 1) on 0x7fb0cd0cf700
+< sp_search_track() = 0x228a450
+> sp_track_add_ref(0x228a450) on 0x7fb0cd0cf700
+> sp_search_num_tracks(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_num_tracks() = 2
+> sp_search_num_tracks(0x1f5acc0) on 0x7fb0cd0cf700
+< sp_search_num_tracks() = 2
+> sp_playlist_add_tracks(0x2092840 0x7fffc83d47e0 2 0 0x2212390) on 0x7fb0cd0cf700
+< sp_playlist_add_tracks() = 0
+> sp_track_release(0x2289fb0) on 0x7fb0cd0cf700
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x2092840) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2157930 'spotify:user:natdempk:playlist:47wPj2zw9lzMcvfdtU478m'
+> sp_link_as_string(0x2157930 0x1ddd9e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2157930 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2157930) on 0x7fb0cd0cf700
+> sp_session_user(0x2212390) on 0x7fb0cd0cf700
+< sp_session_user() = 0x226ffd0
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x2092840) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2157930 'spotify:user:natdempk:playlist:47wPj2zw9lzMcvfdtU478m'
+> sp_link_as_string(0x2157930 0x1ddd9e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2157930 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2157930) on 0x7fb0cd0cf700
+> sp_session_process_events(0x2212390 0x235bf08) on 0x7fb0cd0cf700
+< sp_session_process_events() = 5000
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_playlist_add_ref(0x2092840) on 0x7fb0cd0cf700
+> sp_playlist_num_tracks(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_num_tracks() = 2
+> sp_playlist_num_tracks(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_num_tracks() = 2
+> sp_playlist_track(0x2092840 0) on 0x7fb0cd0cf700
+< sp_playlist_track() = 0x2289fb0
+> sp_track_add_ref(0x2289fb0) on 0x7fb0cd0cf700
+> sp_playlist_num_tracks(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_num_tracks() = 2
+> sp_playlist_track(0x2092840 1) on 0x7fb0cd0cf700
+< sp_playlist_track() = 0x228a450
+> sp_track_add_ref(0x228a450) on 0x7fb0cd0cf700
+> sp_playlist_num_tracks(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_num_tracks() = 2
+> sp_link_create_from_track(0x2289fb0 0) on 0x7fb0cd0cf700
+< sp_link_create_from_track() = 0x2166300 'spotify:track:1HoV86Z02IGN7GMdcfVyGh'
+> sp_link_add_ref(0x2166300) on 0x7fb0cd0cf700
+> sp_link_as_string(0x2166300 0x1fb6520 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_as_string(0x2166300 0x1fa9ab0 37) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_release(0x2166300) on 0x7fb0cd0cf700
+> sp_link_create_from_track(0x228a450 0) on 0x7fb0cd0cf700
+< sp_link_create_from_track() = 0x21669e0 'spotify:track:31BPnapcrlqpPxMx2GRabp'
+> sp_link_add_ref(0x21669e0) on 0x7fb0cd0cf700
+> sp_link_as_string(0x21669e0 0x1fb6520 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_as_string(0x21669e0 0x1fa9a58 37) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_release(0x21669e0) on 0x7fb0cd0cf700
+> sp_link_create_from_track(0x2289fb0 0) on 0x7fb0cd0cf700
+< sp_link_create_from_track() = 0x21658e0 'spotify:track:1HoV86Z02IGN7GMdcfVyGh'
+> sp_link_add_ref(0x21658e0) on 0x7fb0cd0cf700
+> sp_link_as_string(0x21658e0 0x1fb6060 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_as_string(0x21658e0 0x1fa9a58 37) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_release(0x21658e0) on 0x7fb0cd0cf700
+> sp_link_create_from_track(0x228a450 0) on 0x7fb0cd0cf700
+< sp_link_create_from_track() = 0x2165950 'spotify:track:31BPnapcrlqpPxMx2GRabp'
+> sp_link_add_ref(0x2165950) on 0x7fb0cd0cf700
+> sp_link_as_string(0x2165950 0x1fb6520 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_as_string(0x2165950 0x1fa98f8 37) on 0x7fb0cd0cf700
+< sp_link_as_string() = 36
+> sp_link_release(0x2165950) on 0x7fb0cd0cf700
+> sp_track_release(0x2289fb0) on 0x7fb0cd0cf700
+> sp_playlist_get_offline_status(0x2212390 0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_get_offline_status() = 0
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_session_process_events(0x2212390 0x235b4f8) on 0x7fb0cd0cf700
+< sp_session_process_events() = 5000
+> sp_session_process_events(0x2212390 0x235bf08) on 0x7fb0cd0cf700
+> pchLoaded(0x233dbd0) on 0x7fb0cd0cf700
+< pchLoaded() = 
+< sp_session_process_events() = 3734
+> sp_session_process_events(0x2212390 0x235b4f8) on 0x7fb0cd0cf700
+< sp_session_process_events() = 1
+> sp_session_process_events(0x2212390 0x235bf08) on 0x7fb0cd0cf700
+> pchLoaded(0x233dbd0) on 0x7fb0cd0cf700
+< pchLoaded() = 
+< sp_session_process_events() = 1000
+> sp_session_process_events(0x2212390 0x235b4f8) on 0x7fb0cd0cf700
+< sp_session_process_events() = 112
+> sp_session_process_events(0x2212390 0x235bf08) on 0x7fb0cd0cf700
+< sp_session_process_events() = 4756
+> sp_session_process_events(0x2212390 0x235b4f8) on 0x7fb0cd0cf700
+< sp_session_process_events() = 4111
+> sp_session_process_events(0x2212390 0x235bf08) on 0x7fb0cd0cf700
+< sp_session_process_events() = 3483
+> sp_session_process_events(0x2212390 0x235b4f8) on 0x7fb0cd0cf700
+< sp_session_process_events() = 2826
+> sp_playlist_is_loaded(0x2092840) on 0x7fb0cd0cf700
+< sp_playlist_is_loaded() = 1
+> sp_link_create_from_playlist(0x2092840) on 0x7fb0cd0cf700
+< sp_link_create_from_playlist() = 0x2289690 'spotify:user:natdempk:playlist:47wPj2zw9lzMcvfdtU478m'
+> sp_link_as_string(0x2289690 0x1ddd9e0 11) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_as_string(0x2289690 0x21d0dc8 54) on 0x7fb0cd0cf700
+< sp_link_as_string() = 53
+> sp_link_release(0x2289690) on 0x7fb0cd0cf700
+> sp_playlistcontainer_remove_callbacks(0x1e85e50 0x1facc40 (nil)) on 0x7fb0cd0cf700
+< sp_playlistcontainer_remove_callbacks() = 
+> sp_playlistcontainer_release(0x1e85e50) on 0x7fb0cd0cf700
+> sp_track_release(0x228a450) on 0x7fb0cd0cf700

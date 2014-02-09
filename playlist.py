@@ -3,6 +3,7 @@ from flask import Flask, request, session, g, redirect, url_for, \
 import query
 import pyechonest
 import pylast
+import create
 
 
 app = Flask(__name__)
@@ -32,8 +33,9 @@ def generate_playlist():
         return render_template('index.html', error="Your track was not found.")
     except:
         return render_template('index.html', error="An unknown error has occurred. Try again later.")
-    playlist_id = 'test'
-    return render_template('playlist.html', playlist_id=playlist_id, tuples=tuples)
+    playlist_url = create.create_playlist(tuples)
+    print playlist_url
+    return render_template('playlist.html', playlist_id=playlist_url, tuples=tuples)
 
 if __name__ == '__main__':
     app.run(debug=True)
