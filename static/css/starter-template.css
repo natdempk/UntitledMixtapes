@@ -95,6 +95,7 @@ body {
 
 #right-slide {
   float:right;
+  border-right: 1px solid #dce4ec;
 }
 
 #left-slide, #right-slide {
@@ -107,7 +108,6 @@ body {
   border-top-right-radius: 0;
   border-bottom: 1px solid #dce4ec;
   border-left: 1px solid #dce4ec;
-  border-right: 1px solid #dce4ec;
 }
 
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
@@ -124,5 +124,5 @@ body {
 }
 
 .form-control {
-  border-width: 1px !important;
+  border-width: 2px !important;
 }
