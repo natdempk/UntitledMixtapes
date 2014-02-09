@@ -310,18 +310,26 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
                             flag = True
             total_info.append(info)
 
-    total_res = [[first_song.title, artist_name]]
+    #total_res = [[first_song.title, artist_name]]
+
+    #for i in range(len(total_info)):
+    #	try:
+    #        total_res.append([total_info[i]['song_handle'].title,
+    #                      total_info[i]['song_handle'].artist_name])
+    #    except:
+    #    	pass
+
+    #total_res.append([second_song.title, artist_name])
+
+    total_res = []
+    total_res.append(first_song.get_tracks("spotify-WW")[0][u'foreign_id'])
 
     for i in range(len(total_info)):
     	try:
-            total_res.append([total_info[i]['song_handle'].title,
-                          total_info[i]['song_handle'].artist_name])
+        	total_res.append(total_info[i]['song_handle'].get_tracks("spotify-WW")[0][u'foreign_id'])
         except:
         	pass
 
-    total_res.append([second_song.title, artist_name])
+    total_res.append(second_song.get_tracks("spotify-WW")[0][u'foreign_id'])
 
-    #print "end time"
-    #print time.time() - start_time
     return total_res
-

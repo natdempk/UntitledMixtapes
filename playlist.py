@@ -3,7 +3,7 @@ from flask import Flask, request, session, g, redirect, url_for, \
 import query
 import pyechonest
 import pylast
-import create
+#import create
 
 
 app = Flask(__name__)
@@ -36,7 +36,8 @@ def generate_playlist():
 
     #print(pairs)
     #track_ids = create.create_playlist(pairs)
-    embed_string = ",".join(track_ids.split(':')[2])
+    track_ids2 = [t.split(':')[2] for t in track_ids]
+    embed_string = ",".join(track_ids2)
     #print track_ids
     #print embed_string
     return render_template('playlist.html', embed_string=embed_string, tuples=None)
