@@ -36,7 +36,7 @@ def generate_playlist():
 
     #print(pairs)
     #track_ids = create.create_playlist(pairs)
-    embed_string = ",".join(track_ids)
+    embed_string = ",".join(track_ids.split(':')[2])
     #print track_ids
     #print embed_string
     return render_template('playlist.html', embed_string=embed_string, tuples=None)
