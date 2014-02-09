@@ -305,7 +305,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
                             flag = True
             total_info.append(info)
 
-    total_res = [[first_song, the_artist]]
+    total_res = [[first_song.title, artist_name]]
 
     for i in range(len(total_info)):
         total_res.append([total_info[i]['song_handle'].title,
