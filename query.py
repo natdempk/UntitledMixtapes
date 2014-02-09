@@ -1,9 +1,43 @@
 #import spotimeta as sm
 import pylast
 import random
+import threading
+import Queue
+import time
 from pyechonest import config, artist, song
 
 config.ECHO_NEST_API_KEY = "***REMOVED***"
+
+class echoArtistThread(threading.Thread):
+    def __init__(self, queue, artist_list):
+        threading.Thread.__init__(self)
+        self.queue = queue
+        self.artist_list = artist_list
+
+    def run(self):
+        while True:
+            a = self.queue.get()
+            ar = artist.Artist(a)
+            l = ar.get_songs()
+            self.artist_list.append({'artist':ar,'songs':l})
+            self.queue.task_done()
+
+class echoThread(threading.Thread):
+    def __init__(self, queue, songs_list):
+        threading.Thread.__init__(self)
+        self.queue = queue
+        self.songs_list = songs_list
+
+    def run(self):
+        while True:
+            s = self.queue.get() # get artist from queue
+            self.songs_list.append(s.get_audio_summary())
+            self.queue.task_done()
+
+            #the_artist = artist.Artist(a)
+            #songs = the_artist.get_songs()[:num_songs]
+            #artist_list.append({'artist':})
+
 
 def get_artist_num(song_max):
 	if song_max == 12:
@@ -15,6 +49,7 @@ def get_artist_num(song_max):
 
 def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_max=8, diversity=0):
 
+    start_time = time.time()
     similar_artist_num = get_artist_num(song_max)
     if diversity:
         similar_artist_num /= 2
@@ -34,8 +69,13 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
                     password_hash = "***REMOVED***")
 
 
+    #print "start get artists + similar"
+    #print time.time() - start_time
     artistgrab = network.get_artist(artist_name) # get artist name from last.fm
     similar = artistgrab.get_similar()[0:similar_artist_num] # get similar artists
+    #print "end get artists + similar"
+    #print time.time() - start_time
+
     similar_artists = []
     # get a specified number of similar artists
     [similar_artists.append(similar[i][0].get_name()) for i in range(len(similar))]
@@ -43,17 +83,29 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
 
     if diversity: # get more kinda similar artists to mix in
         k_artistgrab = network.get_artist(similar_artists[0])
-        k_similar = k_artistgrab.get_similar()[0:similar_artist_num]
+        k_similar = k_artistgrab.get_similar()
+        last = len(k_similar)
         k_similar_artists = []
-        [k_similar_artists.append(k_similar[i][0].get_name()) for i in range(len(similar))]
+        index = 0
+        while len(k_similar_artists) < len(similar_artists):
+            if index < last:
+                if not k_similar[index][0].get_name() in similar_artists:
+                    k_similar_artists.append(k_similar[index][0].get_name())
+                index += 1
+            else:
+                break
+
+        #[k_similar_artists.append(k_similar[i][0].get_name()) for i in range(len(similar))]
         k_similar_artist_num = len(k_similar_artists)
 
-    #for i in range(similar_artist_num):
+    #for i in range(similar_artist_num):    print time.time() - start_time
+
     #    if i < len(similar):
     #        similar_artists.append(similar[i][0].get_name())
     #    else:
     #        similar_artist_num = len(similar_artists)
     #        break
+
 
     the_song = song.search(title=song_name, artist=artist_name)[0] # get requested song
     the_song_info = the_song.get_audio_summary() # get echonest song info
@@ -61,9 +113,51 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     sim_songs = []
     k_sim_songs = []
 
-    for i in range(similar_artist_num): # for each similar artist
+    a_queue = Queue.Queue()
+    a_list = []
+
+    for a in similar_artists:
+        a_queue.put(a)
+
+    for i in range(similar_artist_num):
+        t = echoArtistThread(a_queue, a_list)
+        t.setDaemon(True)
+        t.start()
+
+    a_queue.join()
+
+    for a in a_list:
+        l = a['songs']
+        if l:
+            [sim_songs.append(l[random.randint(0, len(l)-1)]) for j in range(song_max)]
+
+    if diversity:
+        k_queue = Queue.Queue()
+        k_list = []
+        for a in k_similar_artists:
+            k_queue.put(a)
+
+        for i in range(k_similar_artist_num):
+            t = echoArtistThread(k_queue, k_list)
+            t.setDaemon(True)
+            t.start()
+
+        k_queue.join()
+
+        for a in k_list:
+            l = a['songs']
+            if l:
+                [k_sim_songs.append(l[random.randint(0, len(l)-1)]) for j in range(song_max)]
+
+
+
+    '''for i in range(similar_artist_num): # for each similar artist
+        print "get similar artists echonest start"
+        print time.time() - start_time
         a = artist.Artist(similar_artists[i]) # get artist info from echonest
         l = a.get_songs() # get songs for artist
+        print "end"
+        print time.time() - start_time
         if l:
             #for j in range(song_max):
                 #sim_songs.append(l[random.randint(0, len(l)-1)])
@@ -74,9 +168,14 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
             m = d.get_songs()
             if m:
                 [k_sim_songs.append(m[random.randint(0, len(m)-1)]) for j in range(song_max)]
+    '''
 
+    #print "artist get name"
+    #print time.time() - start_time
     the_artist = artist.Artist(artist_name)
     the_songs = the_artist.get_songs()[:5]
+    #print "end"
+    #print time.time() - start_time
     first_song = the_songs[random.randint(0, len(the_songs)-1)]
 
     seen = set()
@@ -85,8 +184,19 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
 
     sim_songs_info = []
 
-    for i in range(len(sim_songs)): # for similar songs
-        sim_songs_info.append(sim_songs[i].get_audio_summary()) # get audio info
+    queue = Queue.Queue()
+
+    for s in sim_songs: # add songs to queue
+        queue.put(s)
+
+    for i in range(len(sim_songs)): # create threads
+        t = echoThread(queue, sim_songs_info)
+        t.setDaemon(True)
+        t.start()
+
+    queue.join() # wait for queue to be processed
+
+    for i in range(len(sim_songs)): # create song handles
         sim_songs_info[i]['song_handle'] = sim_songs[i]
 
     # filter to songs with similar energy
@@ -104,15 +214,32 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
 
     # do the same for
     if diversity:
+        #print "doing diversity song info"
         k_seen = set()
         k_seen_add = k_seen.add
         k_sim_songs = [x for x in k_sim_songs if x not in seen and not k_seen_add(x)]
 
         k_sim_songs_info = []
 
-        for i in range(len(k_sim_songs)):
-            k_sim_songs_info.append(k_sim_songs[i].get_audio_summary())
+        kd_queue = Queue.Queue()
+
+        for s in k_sim_songs: # add songs to queue
+            kd_queue.put(s)
+
+        for i in range(len(k_sim_songs)): # create threads
+            t = echoThread(kd_queue, k_sim_songs_info)
+            t.setDaemon(True)
+            t.start()
+
+        kd_queue.join() # wait for queue to be processed
+
+        for i in range(len(sim_songs)): # create song handles
             k_sim_songs_info[i]['song_handle'] = k_sim_songs[i]
+
+        #print "finished diversity song info"
+        '''for i in range(len(k_sim_songs)):
+            k_sim_songs_info.append(k_sim_songs[i].get_audio_summary())
+            k_sim_songs_info[i]['song_handle'] = k_sim_songs[i]'''
 
         # filter to songs with similar energy
         k_sim_songs_info = filter(lambda k: k[u'energy'] < the_song_info[u'energy']+.3 and
@@ -175,5 +302,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
         total_res.append([total_info[i]['song_handle'].title,
                           total_info[i]['song_handle'].artist_name])
 
+    #print "end time"
+    #print time.time() - start_time
     return total_res
 
