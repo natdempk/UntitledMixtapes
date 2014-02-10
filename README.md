@@ -5,7 +5,7 @@ UntitledMixtapes is a Spotify mixtape-style playlist generator.
 
 Given a track and initial settings, the app queries last.fm and EchoNest APIs to find and order songs based on artist similarity and song properties like "energy" and tempo. The result is displayed embedded in the browser using Spotify's web widgets.
 
-UntitledMixtapes is written in mostly Python and uses Flask to communicate with the back-end. The web interface was designed based off of Bootstrap, with added JQuery.
+UntitledMixtapes is written mostly in Python and uses Flask to communicate with the back-end. The web interface was designed based off of Bootstrap, with additional JQuery functionality added.
 
 
 Background
