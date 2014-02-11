@@ -67,10 +67,13 @@ body {
   font-size: 24px;
 }
 
-.mixtape {
+.hello {
+  display: block;
+}
+
+#mixtape, #mixmove {
   width: 500px;
   margin: 0 auto;
-  display: block;
   padding-bottom: 25px;
 }
 
@@ -129,4 +132,14 @@ body {
 
 .byebye {
   display: none;
+}
+
+#equalizer {
+  max-width:100px; 
+  max-height:30px; 
+  margin-top: -10px;
+}
+
+.white-bg {
+  background: #FFFFFF;
 }

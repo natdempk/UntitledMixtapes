@@ -29,7 +29,7 @@
           <br />
           <div id="bpm-slider"></div>
           <br />-->
-          <div id="left-slide" style="width:50%;float:left;">
+          <div id="left-slide">
           <div class="input-group">
            <span style="border: 1px solid #dce4ec;border-right:0 !important;" class="input-group-addon">Diversity</span>
             <input type="text" style="border-bottom-right-radius: 0;border-top-right-radius: 0;background:#FFFFFF" class="form-control disabled" id="diversity-val" name="diversity" value="2" readonly>
@@ -37,10 +37,10 @@
           <br />
           <div id="diversity-slider"></div>
           </div>
-          <div id="right-slide" style="width:50%;float:right;">
+          <div id="right-slide">
           <div class="input-group">
             <span class="input-group-addon" style="border-left:0;border-bottom-left-radius: 0;border-top-left-radius: 0;">Max Tracks</span>
-            <input type="text" style="background:#FFFFFF;" class="form-control disabled" id="tracks-val" name="tracks" value="8" readonly>
+            <input type="text" class="form-control disabled white-bg" id="tracks-val" name="tracks" value="8" readonly>
           </div>
           <br />
           <div id="tracks-slider"></div>
@@ -51,29 +51,10 @@
         </form>
 
       </div>
-      <img class="mixtape" id="mixtape" src="../static/images/mixtape.png" />
-      <img class="mixtape byebye" id="mixmove" src="../static/images/mixmove.gif" />
+      <img class="hello"  id="mixtape" src="../static/images/mixtape.png" />
+      <img class="byebye" id="mixmove" src="../static/images/mixmove.gif" />
 
       <script>
-      // check if jQuery loaded
-    //if (typeof jQuery != 'undefined') {
-      // jQuery is loaded => print the version
-      //alert(jQuery.fn.jquery);
-    //}
-    // update bpm input based on sliders
-    /*$(function() {
-      $( "#bpm-slider" ).slider({
-        range: "min",
-        value: 2,
-        min: 1,
-        max: 3,
-        step: 1,
-        slide: function( event, ui ) {
-          $( "#bpm-val" ).val( ui.value );
-        }
-      });
-      $( "#bpm-val" ).val( $( "#bpm-slider" ).slider( "value" ));
-    });*/
     // update diversity based on slider
     $(function() {
       $( "#diversity-slider" ).slider({
@@ -107,8 +88,8 @@
     $(function(){
       $('#submitbutton').click(function() {
           $('#submitbutton').attr('disabled', 'disabled');
-          $('#mixtape').toggleClass('byebye');
-          $('#mixmove').toggleClass('byebye');
+          $('#mixtape').toggleClass('hello').toggleClass('byebye'); // dont put into one call
+          $('#mixmove').toggleClass('hello').toggleClass('byebye'); // "
           $('#playlist').delay(100).submit();
       });
     })
