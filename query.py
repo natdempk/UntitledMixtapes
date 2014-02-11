@@ -3,9 +3,11 @@ import random
 import threading
 import Queue
 import time
-from pyechonest import config, artist, song
+from pyechonest import config as echoconfig
+from pyechonest import artist, song
+from playlist import config
 
-config.ECHO_NEST_API_KEY = "***REMOVED***"
+echoconfig.ECHO_NEST_API_KEY = config.ECHO_NEST_API_KEY
 
 class echoArtistThread(threading.Thread):
     def __init__(self, queue, artist_list):
@@ -61,13 +63,10 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
 
     song_max -= 2
 
-    API_KEY = "***REMOVED***"
-    API_SECRET = "***REMOVED***"
-
-    network = pylast.LastFMNetwork(api_key = API_KEY, api_secret =
-        API_SECRET, username="natdempk",
-                    password_hash = "***REMOVED***")
-
+    network = pylast.LastFMNetwork(api_key = config.LAST_FM_API_KEY, 
+                                   api_secret = config.LAST_FM_API_SECRET,
+                                   username= config.LAST_FM_USERNAME,
+                                   password_hash = config.LAST_FM_PASSWORD_HASH)
 
     artistgrab = network.get_artist(artist_name) # get artist name from last.fm
     similar = artistgrab.get_similar()[0:similar_artist_num] # get similar artists

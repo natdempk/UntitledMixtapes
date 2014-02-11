@@ -6,7 +6,7 @@ import pylast
 
 
 app = Flask(__name__)
-app.config.from_object(__name__)
+app.config.from_object('config')
 
 #app.config['PROPAGATE_EXCEPTIONS'] = True
 
@@ -33,11 +33,8 @@ def generate_playlist():
     except:
         return render_template('index.html', error="An unknown error has occurred. Try again later.")
 
-    #print(pairs)
-    #track_ids = create.create_playlist(pairs)
-    track_ids2 = [t.split(':')[2] for t in track_ids]
-    embed_string = ",".join(track_ids2)
     #print track_ids
+    embed_string = ",".join([t.split(':')[2] for t in track_ids])
     #print embed_string
     return render_template('playlist.html', embed_string=embed_string, artist=artist, track=track)
 
