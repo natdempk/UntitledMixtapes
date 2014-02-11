@@ -1,4 +1,3 @@
-#import spotimeta as sm
 import pylast
 import random
 import threading
