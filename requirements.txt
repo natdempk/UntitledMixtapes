@@ -2,7 +2,11 @@ Flask==0.10.1
 Jinja2==2.7.2
 MarkupSafe==0.18
 Werkzeug==0.9.4
+cffi==0.8.1
+gunicorn==18.0
 itsdangerous==0.23
+pycparser==2.10
 pyechonest==8.0.1
 pylast==0.5.11
+pyspotify==2.0.0a1
 wsgiref==0.1.2
