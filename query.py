@@ -62,11 +62,6 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
 
     song_max -= 2
 
-    '''
-    search = sm.search_artist("The XX")
-    print search['result'][0]['href']
-    '''
-
     API_KEY = "***REMOVED***"
     API_SECRET = "***REMOVED***"
 
@@ -75,20 +70,14 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
                     password_hash = "***REMOVED***")
 
 
-    #print "start get artists + similar"
-    #print time.time() - start_time
     artistgrab = network.get_artist(artist_name) # get artist name from last.fm
     similar = artistgrab.get_similar()[0:similar_artist_num] # get similar artists
-    #print "end get artists + similar"
-    #print time.time() - start_time
 
     similar_artists = []
     # get a specified number of similar artists
     [similar_artists.append(similar[i][0].get_name()) for i in range(len(similar)) if not '&' in similar[i][0].get_name()]
 
     similar_artist_num = len(similar_artists)
-
-    print similar_artists
 
     if diversity: # get more kinda similar artists to mix in
         k_artistgrab = network.get_artist(similar_artists[0])
@@ -157,39 +146,14 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
             if l:
                 [k_sim_songs.append(l[random.randint(0, len(l)-1)]) for j in range(song_max)]
 
-
-
-    '''for i in range(similar_artist_num): # for each similar artist
-        print "get similar artists echonest start"
-        print time.time() - start_time
-        a = artist.Artist(similar_artists[i]) # get artist info from echonest
-        l = a.get_songs() # get songs for artist
-        print "end"
-        print time.time() - start_time
-        if l:
-            #for j in range(song_max):
-                #sim_songs.append(l[random.randint(0, len(l)-1)])
-            # add a number of random songs
-            [sim_songs.append(l[random.randint(0, len(l)-1)]) for j in range(song_max)]
-        if diversity:
-            d = artist.Artist(k_similar_artists[i])
-            m = d.get_songs()
-            if m:
-                [k_sim_songs.append(m[random.randint(0, len(m)-1)]) for j in range(song_max)]
-    '''
-
-    #print "artist get name"
-    #print time.time() - start_time
     the_artist = artist.Artist(artist_name)
     the_songs = sorted(the_artist.get_songs()[:10], key=lambda k: the_song_info[u'energy']-k.get_audio_summary()[u'energy'])
     seen = set()
     seen_add = seen.add
     the_songs = [ x for x in the_songs if x not in seen and not seen_add(x)]
-    #print "end"
-    #print time.time() - start_time
 
     n = 1
-    tflag= True
+    tflag = True
 
     while tflag == True:
         tflag = False
@@ -198,6 +162,21 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
         except:
             tflag = True
             n += 1
+
+
+    #when we found info about the first song but its not on spotify
+    try:
+        new_first_track_id = the_song.get_tracks("spotify-WW")[0][u'foreign_id']
+    except:
+        n += 1
+        tflag = True
+        while tflag == True:
+            tflag = False
+            try:
+                new_first_track_id = the_songs[n].get_tracks("spotify-WW")[0][u'foreign_id']
+            except:
+                tflag = True
+                n += 1
 
     seen = set()
     seen_add = seen.add
@@ -217,8 +196,10 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
 
     queue.join() # wait for queue to be processed
 
+
     for i in range(len(sim_songs)): # create song handles
         sim_songs_info[i]['song_handle'] = sim_songs[i]
+
 
     # filter to songs with similar energy
     sim_songs_info = filter(lambda k: k[u'energy'] < the_song_info[u'energy']+.3 and
@@ -235,7 +216,6 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
 
     # do the same for
     if diversity:
-        #print "doing diversity song info"
         k_seen = set()
         k_seen_add = k_seen.add
         k_sim_songs = [x for x in k_sim_songs if x not in seen and not k_seen_add(x)]
@@ -257,7 +237,6 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
         for i in range(len(sim_songs)): # create song handles
             k_sim_songs_info[i]['song_handle'] = k_sim_songs[i]
 
-        #print "finished diversity song info"
         '''for i in range(len(k_sim_songs)):
             k_sim_songs_info.append(k_sim_songs[i].get_audio_summary())
             k_sim_songs_info[i]['song_handle'] = k_sim_songs[i]'''
@@ -334,13 +313,16 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     #total_res.append([second_song.title, artist_name])
 
     total_res = []
-    total_res.append(the_song.get_tracks("spotify-WW")[0][u'foreign_id'])
+
+    total_res.append(new_first_track_id)
+
 
     for i in range(len(total_info)):
     	try:
         	total_res.append(total_info[i]['song_handle'].get_tracks("spotify-WW")[0][u'foreign_id'])
         except:
-        	pass
+            print total_info[i]['song_handle'].title + " not found"
+            pass
 
     total_res.append(first_id)
 
