@@ -113,10 +113,6 @@ body {
   border-left: 1px solid #dce4ec;
 }
 
-.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-  background: #FFFFFF #important;
-}
-
 #diversity-slider, #tracks-slider {
   max-width: 90%;
   margin-left: 5%;
@@ -141,5 +137,5 @@ body {
 }
 
 .white-bg {
-  background: #FFFFFF;
+  background: #FFFFFF !important;
 }
