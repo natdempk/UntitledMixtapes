@@ -22,8 +22,7 @@ class echoArtistThread(threading.Thread):
                 ar = artist.Artist(a)
                 l = ar.get_songs()
                 self.artist_list.append({'artist':ar,'songs':l})
-                self.queue.task_done()
-            except:
+            finally:
                 self.queue.task_done()
 
 class echoThread(threading.Thread):
@@ -37,8 +36,7 @@ class echoThread(threading.Thread):
             try:
                 s = self.queue.get() # get artist from queue
                 self.songs_list.append(s.get_audio_summary())
-                self.queue.task_done()
-            except:
+            finally:
                 self.queue.task_done()
 
             #the_artist = artist.Artist(a)
