@@ -22,11 +22,11 @@ def generate_playlist():
     except pyechonest.util.EchoNestAPIError:
         return render_template('index.html', error="Slow down! Maximum number of EchoNest API Requests exceeded.")
     except pylast.WSError:
-        return render_template('index.html', error="Your artist was not found.")
+        return render_template('index.html', warning="Your artist was not found.")
     except IndexError:
-        return render_template('index.html', error="Your track was not found.")
+        return render_template('index.html', warning="Your track was not found.")
     except ValueError:
-        return render_template('index.html', error="Your track was not found.")
+        return render_template('index.html', warning="Your track was not found.")
     except:
         return render_template('index.html', error="An unknown error has occurred. Try again later.")
 

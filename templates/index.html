@@ -2,8 +2,14 @@
 {% block body %}
 
       <div class="starter-template">
-        {% if error %}
+        {% if warning %}
         <div class="alert alert-warning alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+           {{warning}}
+        </div>
+        {% endif %}
+        {% if error %}
+        <div class="alert alert-danger alert-dismissable">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
            {{error}}
         </div>
@@ -18,7 +24,7 @@
           <div class="input-group">
             <span class="input-group-addon">Artist</span>
             <input type="text" class="form-control" id="artist" name="artist" placeholder="Anamanaguchi">
-            <span style="border: 0" class="input-group-addon">Title</span>
+            <span style="border: 0" class="input-group-addon">Song Title</span>
             <input type="text" class="form-control" id="track" name="track" placeholder="Endless Fantasy">
           </div>
           <br />
