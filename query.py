@@ -26,24 +26,6 @@ class echoArtistThread(threading.Thread):
             finally:
                 self.queue.task_done()
 
-class echoThread(threading.Thread):
-    def __init__(self, queue, songs_list):
-        threading.Thread.__init__(self)
-        self.queue = queue
-        self.songs_list = songs_list
-
-    def run(self):
-        while True:
-            try:
-                s = self.queue.get() # get artist from queue
-                self.songs_list += song.profile(s, buckets=['audio_summary'])
-            finally:
-                self.queue.task_done()
-
-            #the_artist = artist.Artist(a)
-            #songs = the_artist.get_songs()[:num_songs]
-            #artist_list.append({'artist':})
-
 
 def get_artist_num(song_max):
 	if song_max == 12:
@@ -90,16 +72,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
             else:
                 break
 
-        #[k_similar_artists.append(k_similar[i][0].get_name()) for i in range(len(similar))]
         k_similar_artist_num = len(k_similar_artists)
-
-    #for i in range(similar_artist_num):    print time.time() - start_time
-
-    #    if i < len(similar):
-    #        similar_artists.append(similar[i][0].get_name())
-    #    else:
-    #        similar_artist_num = len(similar_artists)
-    #        break
 
     the_song = song.search(title=song_name, artist=artist_name)[0] # get requested song
     the_song_info = the_song.get_audio_summary() # get echonest song info
@@ -178,30 +151,11 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     seen = set()
     seen_add = seen.add
     sim_songs = [ x for x in sim_songs if x not in seen and not seen_add(x)]
-
-    sim_songs_info = []
-
-    queue = Queue.Queue()
-
-    i = 0
-    while i < len(sim_songs): # add songs to queue
-        queue.put(map(lambda k: sim_songs[k].id, range(i, min(i+9, len(sim_songs)-1))))
-        i += 9
-    
-    for r in range(int(math.ceil(len(sim_songs)/9))): # create threads
-       t = echoThread(queue, sim_songs_info)
-       t.setDaemon(True)
-       t.start()
-    
-    queue.join() # wait for queue to be processed
-
-    #for i in range(len(sim_songs)): # create song handles
-    #    sim_songs_info[i]['song_handle'] = sim_songs[i]
-
+    print sim_songs[0].audio_summary
 
     # filter to songs with similar energy
     sim_songs_info = filter(lambda k: k.audio_summary[u'energy'] < the_song_info[u'energy']+.2 and
-    				      k.audio_summary[u'energy'] > the_song_info[u'energy']-.2, sim_songs_info)
+    				      k.audio_summary[u'energy'] > the_song_info[u'energy']-.2, sim_songs)
 
     # sort songs by tempo
     sim_songs_info = sorted(sim_songs_info, key=lambda k: k.audio_summary[u'tempo'])
@@ -301,21 +255,8 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
                             flag = True
             total_info.append(info)
 
-    #total_res = [[first_song.title, artist_name]]
-
-    #for i in range(len(total_info)):
-    #	try:
-    #        total_res.append([total_info[i]['song_handle'].title,
-    #                      total_info[i]['song_handle'].artist_name])
-    #    except:
-    #    	pass
-
-    #total_res.append([second_song.title, artist_name])
-
     total_res = []
-
     total_res.append(new_first_track_id)
-
 
     for i in range(len(total_info)):
     	try:
