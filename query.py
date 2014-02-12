@@ -5,7 +5,7 @@ import Queue
 import time
 from pyechonest import config as echoconfig
 from pyechonest import artist, song
-from playlist import config
+import config
 
 echoconfig.ECHO_NEST_API_KEY = config.ECHO_NEST_API_KEY
 

@@ -4,11 +4,8 @@ import query
 import pyechonest
 import pylast
 
-
 app = Flask(__name__)
 app.config.from_object('config')
-
-#app.config['PROPAGATE_EXCEPTIONS'] = True
 
 @app.route('/')
 def show_home():
