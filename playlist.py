@@ -30,9 +30,7 @@ def generate_playlist():
     except:
         return render_template('index.html', error="An unknown error has occurred. Try again later.")
 
-    #print track_ids
     embed_string = ",".join([t.split(':')[2] for t in track_ids])
-    #print embed_string
     return render_template('playlist.html', embed_string=embed_string, artist=artist, track=track)
 
 if __name__ == '__main__':

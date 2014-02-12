@@ -6,6 +6,7 @@ import time
 from pyechonest import config as echoconfig
 from pyechonest import artist, song
 import config
+import math
 
 echoconfig.ECHO_NEST_API_KEY = config.ECHO_NEST_API_KEY
 
@@ -35,7 +36,7 @@ class echoThread(threading.Thread):
         while True:
             try:
                 s = self.queue.get() # get artist from queue
-                self.songs_list.append(s.get_audio_summary())
+                self.songs_list += song.profile(s, buckets=['audio_summary'])
             finally:
                 self.queue.task_done()
 
@@ -182,21 +183,17 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
 
     queue = Queue.Queue()
 
-    #
-    #for s in sim_songs: # add songs to queue
-    #    queue.put(s)
-    #
-    #for i in range(len(sim_songs)): # create threads
-    #   t = echoThread(queue, sim_songs_info)
-    #   t.setDaemon(True)
-    #   t.start()
-    #
-    #queue.join() # wait for queue to be processed
-
     i = 0
-    while i < len(sim_songs):
-        sim_songs_info += song.profile(map(lambda k: sim_songs[k].id, range(i, min(i+9, len(sim_songs)-1))), buckets=['audio_summary'])
+    while i < len(sim_songs): # add songs to queue
+        queue.put(map(lambda k: sim_songs[k].id, range(i, min(i+9, len(sim_songs)-1))))
         i += 9
+    
+    for r in range(int(math.ceil(len(sim_songs)/9))): # create threads
+       t = echoThread(queue, sim_songs_info)
+       t.setDaemon(True)
+       t.start()
+    
+    queue.join() # wait for queue to be processed
 
     #for i in range(len(sim_songs)): # create song handles
     #    sim_songs_info[i]['song_handle'] = sim_songs[i]
@@ -223,10 +220,19 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
 
         k_sim_songs_info = []
 
+        queue = Queue.Queue()
+
         i = 0
-        while i < len(k_sim_songs):
-            k_sim_songs_info += song.profile(map(lambda k: k_sim_songs[k].id, range(i, min(i+9, len(k_sim_songs)-1))), buckets=['audio_summary'])
+        while i < len(k_sim_songs): # add songs to queue
+            queue.put(map(lambda k: k_sim_songs[k].id, range(i, min(i+9, len(k_sim_songs)-1))))
             i += 9
+    
+        for r in range(int(math.ceil(len(k_sim_songs)/9))): # create threads
+            t = echoThread(queue, k_sim_songs_info)
+            t.setDaemon(True)
+            t.start()
+    
+        queue.join() # wait for queue to be processed
 
         #for i in range(len(sim_songs)): # create song handles
         #    k_sim_songs_info[i]['song_handle'] = k_sim_songs[i]
