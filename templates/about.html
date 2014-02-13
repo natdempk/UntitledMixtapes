@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="starter-template" style="text-align: left;">
+      <h2 style="text-align:center;padding-bottom:30px">About UntitledMixtap.es</h2>
+
+      <p>
+        UntitledMixtap.es is a service designed to give you a classic mixtape experience. You input a song, adjust the settings, and a Spotify playlist is generated in your browser.
+      </p>
+      <p>
+        The algorithm to generate the mixtape uses heuristics such as energy, tempo, and song length to decide the ordering of the playlist. The first and last songs are always of the artist you chose - and the first song is often the song that you select.
+      </p>
+    
+      <h3>Diversity</h3>
+      <p>
+        The diversity slider affects how far into different genres you want your mixtape to experiment with. Turning this feature on produces the opportunity to be exposed to new music in similar veins to the track that you select.
+      </p>
+
+      <h3>Data Sources</h3>
+      <p>
+        UntitledMixtap.es pulls artist data from <a href="http://www.last.fm/">last.fm</a>, and song data from <a href="http://www.echonest.com/">EchoNest</a>.
+      </p>
+
+      <h3>Source Code</h3>
+      <p>
+        UntitledMixtap.es is open-source, <a href="https://github.com/natdempk/UntitledMixtapes">and is available on Github here</a>.
+      </p>
+</div>
+{% endblock %}

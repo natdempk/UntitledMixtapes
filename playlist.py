@@ -11,6 +11,10 @@ app.config.from_object('config')
 def show_home():
     return render_template('index.html')
 
+@app.route('/about')
+def show_about():
+    return render_template('about.html')
+
 @app.route('/generate', methods=['POST'])
 def generate_playlist():
     artist = request.form['artist']
