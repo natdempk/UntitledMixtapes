@@ -182,13 +182,13 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
         k_sim_songs_info = []
 
         i = 0
-        while i < len(sim_songs):
+        while i < len(k_sim_songs):
             k_sim_songs_info += song.profile(map(lambda k: k_sim_songs[k].id, range(i, min(i+9, len(k_sim_songs)-1))), buckets=['audio_summary'])
             i += 9
 
         # filter to songs with similar energy
         k_sim_songs_info = filter(lambda k: k.audio_summary[u'energy'] < the_song_info[u'energy']+.3 and
-                              k.audio_summary[u'energy'] > the_song_info[u'energy']-.3, k_sim_songs)
+                              k.audio_summary[u'energy'] > the_song_info[u'energy']-.3, k_sim_songs_info)
 
         # sort songs by tempo
         k_sim_songs_info = sorted(k_sim_songs_info, key=lambda k: k.audio_summary[u'tempo'])
