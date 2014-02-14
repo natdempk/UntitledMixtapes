@@ -25,18 +25,18 @@ def generate_playlist():
         track_ids = query.do_everything(artist, track, int(tracks), int(diversity))
     except pyechonest.util.EchoNestAPIError:
         return render_template('index.html', error="Slow down! Maximum number of EchoNest API Requests exceeded.")
-    #except pylast.WSError:
+    except pylast.WSError:
         return render_template('index.html', warning="Your artist was not found.")
-    #except IndexError:
+    except IndexError:
         return render_template('index.html', warning="Your track was not found.")
-    #except ValueError:
+    except ValueError:
         return render_template('index.html', warning="Your track was not found.")
-    #except:
+    except:
         return render_template('index.html', error="An unknown error has occurred. Try again later.")
 
     embed_string = ",".join([t.split(':')[2] for t in track_ids])
     return render_template('playlist.html', embed_string=embed_string, artist=artist, track=track)
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    #app.run()
+    #app.run(debug=True)
+    app.run()
