@@ -43,7 +43,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
         similar_artist_num /= 2
 
     song_max -= 2
-
+    # connect to last.fm
     network = pylast.LastFMNetwork(api_key = config.LAST_FM_API_KEY, 
                                    api_secret = config.LAST_FM_API_SECRET,
                                    username= config.LAST_FM_USERNAME,
@@ -59,7 +59,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     similar_artist_num = len(similar_artists)
 
     if diversity: # get more kinda similar artists to mix in
-        k_artistgrab = network.get_artist(similar_artists[0])
+        k_artistgrab = network.get_artist(similar_artists[0]) # doubt we need this line
         k_similar = k_artistgrab.get_similar()
         last = len(k_similar)
         k_similar_artists = []
@@ -73,32 +73,35 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
                 break
 
         k_similar_artist_num = len(k_similar_artists)
+    # audio summary bucket gets detailed track info, spotify-ww gets some spotify info
+    # and tracks gets track-specific spotify info
+    buckets = ['audio_summary', 'id:spotify-WW', 'tracks'] # setup buckets for requests
+    # get user entered song from echonest
+    the_song = song.search(title=song_name, artist=artist_name, buckets=buckets)[0]
+    the_song_info = the_song.audio_summary
 
-    the_song = song.search(title=song_name, artist=artist_name)[0] # get requested song
-    the_song_info = the_song.audio_summary # get echonest song info
-
-    sim_songs = []
-    k_sim_songs = []
+    sim_songs = [] # similar songs
+    k_sim_songs = [] # kinda similar songs
 
     a_queue = Queue.Queue()
     a_list = []
 
+    # add similar artists to queue
     for a in similar_artists:
         a_queue.put(a)
 
+    # get echonest artists + songs
     for i in range(similar_artist_num):
         t = echoArtistThread(a_queue, a_list)
         t.setDaemon(True)
         t.start()
 
-    a_queue.join()
+    a_queue.join() # wait for all threads to finish
+    # add found soungs to list
+    [sim_songs.extend(a['songs'][0:song_max]) for a in a_list if a['songs']]
 
-    for a in a_list:
-        l = a['songs']
-        if l:
-            sim_songs = sim_songs + l[0:song_max]
-
-    if diversity:
+    if diversity: # make a second queue and look up second set of artists
+        # TODO: make this part of first queue by setting artist types
         k_queue = Queue.Queue()
         k_list = []
         for a in k_similar_artists:
@@ -110,14 +113,17 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
             t.start()
 
         k_queue.join()
+        # if we found songs add them to our song list
+        [k_sim_songs.extend(a['songs'][0:song_max]) for a in k_list if a]
 
-        for a in k_list:
-            l = a['songs']
-            if l:
-                k_sim_songs = k_sim_songs + l[0:song_max]
+    the_artist = artist.Artist(artist_name) # get user's artist
+    artist_songs = the_artist.get_songs()[:10] # get artist songs
+    artist_songs_ids = [s.id for s in artist_songs] # get ids for artist songs
+    artist_songs = song.profile(artist_songs_ids, buckets=buckets) # get spotify IDs and info
+    # sort songs by energy similarity
+    the_songs = sorted(artist_songs, key=lambda k: abs(the_song_info[u'energy']-k.audio_summary[u'energy']))
 
-    the_artist = artist.Artist(artist_name)
-    the_songs = sorted(the_artist.get_songs()[:10], key=lambda k: the_song_info[u'energy']-k.audio_summary[u'energy'])
+    # TODO(natdempk): have zack explain what this does to me
     seen = set()
     seen_add = seen.add
     the_songs = [ x for x in the_songs if x not in seen and not seen_add(x)]
@@ -125,28 +131,35 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     n = 1
     tflag = True
 
-    while tflag == True:
-        tflag = False
-        try:
-            first_id = the_songs[n].get_tracks("spotify-WW")[0][u'foreign_id']
-        except:
-            tflag = True
-            n += 1
+    # filter to only songs that have spotify IDs
+    the_songs = [s for s in the_songs if 'tracks' in s.cache]
+
+    first_song_id = the_songs[0].cache['tracks'][0]['foreign_id'] # set first
+    last_song_id  = the_songs[1].cache['tracks'][0]['foreign_id'] # and last songs
+
+    #TODO(zack): delete below when first + last are known good
+    #while tflag == True:
+    #    tflag = False
+    #    try:
+    #        first_id = the_songs[n].get_tracks("spotify-WW")[0][u'foreign_id']
+    #    except:
+    #        tflag = True
+    #        n += 1
 
 
-    #when we found info about the first song but its not on spotify
-    try:
-        new_first_track_id = the_song.get_tracks("spotify-WW")[0][u'foreign_id']
-    except:
-        n += 1
-        tflag = True
-        while tflag == True:
-            tflag = False
-            try:
-                new_first_track_id = the_songs[n].get_tracks("spotify-WW")[0][u'foreign_id']
-            except:
-                tflag = True
-                n += 1
+    # when we found info about the first song but its not on spotify
+    #try:
+    #    new_first_track_id = the_song.get_tracks("spotify-WW")[0][u'foreign_id']
+    #except:
+    #    n += 1
+    #    tflag = True
+    #    while tflag == True:
+    #        tflag = False
+    #        try:
+    #            new_first_track_id = the_songs[n].get_tracks("spotify-WW")[0][u'foreign_id']
+    #        except:
+    #            tflag = True
+    #            n += 1
 
     seen = set()
     seen_add = seen.add
@@ -156,7 +169,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
 
     i = 0
     while i < len(sim_songs):
-        sim_songs_info += song.profile(map(lambda k: sim_songs[k].id, range(i, min(i+9, len(sim_songs)-1))), buckets=['audio_summary'])
+        sim_songs_info += song.profile(map(lambda k: sim_songs[k].id, range(i, min(i+9, len(sim_songs)-1))), buckets=buckets)
         i += 9
 
 
@@ -173,7 +186,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     fast_songs = sorted(sim_songs_info[len(sim_songs)/2:],
                         key=lambda k: k.audio_summary[u'duration'])
     
-    # do the same for
+    # do the same for diversity songs
     if diversity:
         k_seen = set()
         k_seen_add = k_seen.add
@@ -183,7 +196,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
 
         i = 0
         while i < len(k_sim_songs):
-            k_sim_songs_info += song.profile(map(lambda k: k_sim_songs[k].id, range(i, min(i+9, len(k_sim_songs)-1))), buckets=['audio_summary'])
+            k_sim_songs_info += song.profile(map(lambda k: k_sim_songs[k].id, range(i, min(i+9, len(k_sim_songs)-1))), buckets=buckets)
             i += 9
 
         # filter to songs with similar energy
@@ -204,7 +217,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     counter = 0
 
 
-    if diversity:
+    if diversity: # select songs from 4 lists
         lists = [fast_songs, slow_songs, k_fast_songs, k_slow_songs]
         for i in range(song_max):
             cur_list = lists[i%4]
@@ -223,7 +236,8 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
                         if counter < 100:
                             flag = True
             total_info.append(info)
-    else:
+    else: # select songs from just two lists
+        # TODO make a conditional that sets lists and merge these two pieces of code
         for i in range(song_max/2):
             flag = True
             while flag == True:
@@ -247,16 +261,12 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
             total_info.append(info)
 
     total_res = []
-    total_res.append(new_first_track_id)
+    total_res.append(first_song_id) 
+    final_ids = [t.id for t in total_info]
 
-    for i in range(len(total_info)):
-    	try:
-        	total_res.append(total_info[i].get_tracks("spotify-WW")[0][u'foreign_id'])
-        except:
-            print total_info[i].title + " not found"
-            pass
+    [total_res.append(t.cache['tracks'][0]['foreign_id']) for t in total_info if 'tracks' in s.cache] 
 
-    total_res.append(first_id)
+    total_res.append(last_song_id)
 
     seen = set()
     seen_add = seen.add
