@@ -37,3 +37,6 @@ nosetests.xml
 
 # Thumbs.db
 thumbs.db
+
+# Local config
+config.py

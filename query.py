@@ -11,17 +11,18 @@ import math
 echoconfig.ECHO_NEST_API_KEY = config.ECHO_NEST_API_KEY
 
 class echoArtistThread(threading.Thread):
-    def __init__(self, queue, artist_list):
+    def __init__(self, queue, artist_list, song_max):
         threading.Thread.__init__(self)
         self.queue = queue
         self.artist_list = artist_list
+        self.song_max = song_max-4
 
     def run(self):
         while True:
             try:
                 a = self.queue.get()
                 ar = artist.Artist(a)
-                l = ar.get_songs()
+                l = ar.get_songs(results=5)
                 self.artist_list.append({'artist':ar,'songs':l})
             finally:
                 self.queue.task_done()
@@ -92,13 +93,13 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
 
     # get echonest artists + songs
     for i in range(similar_artist_num):
-        t = echoArtistThread(a_queue, a_list)
+        t = echoArtistThread(a_queue, a_list, song_max)
         t.setDaemon(True)
         t.start()
 
     a_queue.join() # wait for all threads to finish
     # add found soungs to list
-    [sim_songs.extend(a['songs'][0:song_max]) for a in a_list if a['songs']]
+    [sim_songs.extend(a['songs'][0:6]) for a in a_list if a['songs']]
 
     if diversity: # make a second queue and look up second set of artists
         # TODO: make this part of first queue by setting artist types
@@ -108,13 +109,13 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
             k_queue.put(a)
 
         for i in range(k_similar_artist_num):
-            t = echoArtistThread(k_queue, k_list)
+            t = echoArtistThread(k_queue, k_list, song_max)
             t.setDaemon(True)
             t.start()
 
         k_queue.join()
         # if we found songs add them to our song list
-        [k_sim_songs.extend(a['songs'][0:song_max]) for a in k_list if a]
+        [k_sim_songs.extend(a['songs'][0:6]) for a in k_list if a]
 
     the_artist = artist.Artist(artist_name) # get user's artist
     artist_songs = the_artist.get_songs()[:10] # get artist songs
@@ -219,7 +220,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
 
     if diversity: # select songs from 4 lists
         lists = [fast_songs, slow_songs, k_fast_songs, k_slow_songs]
-        for i in range(song_max):
+        for i in range(song_max-2):
             cur_list = lists[i%4]
             flag = True
             while flag == True:
@@ -238,7 +239,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
             total_info.append(info)
     else: # select songs from just two lists
         # TODO make a conditional that sets lists and merge these two pieces of code
-        for i in range(song_max/2):
+        for i in range((song_max-2)/2):
             flag = True
             while flag == True:
                 flag = False
@@ -264,7 +265,14 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     total_res.append(first_song_id) 
     final_ids = [t.id for t in total_info]
 
-    [total_res.append(t.cache['tracks'][0]['foreign_id']) for t in total_info if 'tracks' in s.cache] 
+    print total_info
+
+    for t in total_info:
+        try:
+            if 'tracks' in s.cache:
+                total_res.append(t.cache['tracks'][0]['foreign_id'])
+        except:
+            pass
 
     total_res.append(last_song_id)
 
