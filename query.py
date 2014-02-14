@@ -44,6 +44,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
         similar_artist_num /= 2
 
     song_max -= 2
+
     # connect to last.fm
     network = pylast.LastFMNetwork(api_key = config.LAST_FM_API_KEY, 
                                    api_secret = config.LAST_FM_API_SECRET,
@@ -220,7 +221,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
 
     if diversity: # select songs from 4 lists
         lists = [fast_songs, slow_songs, k_fast_songs, k_slow_songs]
-        for i in range(song_max-2):
+        for i in range(song_max):
             cur_list = lists[i%4]
             flag = True
             while flag == True:
@@ -239,7 +240,7 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
             total_info.append(info)
     else: # select songs from just two lists
         # TODO make a conditional that sets lists and merge these two pieces of code
-        for i in range((song_max-2)/2):
+        for i in range(song_max/2):
             flag = True
             while flag == True:
                 flag = False
