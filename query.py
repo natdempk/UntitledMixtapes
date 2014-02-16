@@ -136,32 +136,30 @@ def do_everything(artist_name="Anamanaguchi", song_name="Endless Fantasy", song_
     # filter to only songs that have spotify IDs
     the_songs = [s for s in the_songs if 'tracks' in s.cache]
 
-    first_song_id = the_songs[0].cache['tracks'][0]['foreign_id'] # set first
-    last_song_id  = the_songs[1].cache['tracks'][0]['foreign_id'] # and last songs
+    #first_song_id = the_songs[0].cache['tracks'][0]['foreign_id'] # set first
+    #last_song_id  = the_songs[1].cache['tracks'][0]['foreign_id'] # and last songs
 
-    #TODO(zack): delete below when first + last are known good
-    #while tflag == True:
-    #    tflag = False
-    #    try:
-    #        first_id = the_songs[n].get_tracks("spotify-WW")[0][u'foreign_id']
-    #    except:
-    #        tflag = True
-    #        n += 1
+    while tflag == True:
+        tflag = False
+        try:
+            first_song_id = the_songs[n].cache['tracks'][0]['foreign_id']
+        except:
+            tflag = True
+            n += 1
 
 
-    # when we found info about the first song but its not on spotify
-    #try:
-    #    new_first_track_id = the_song.get_tracks("spotify-WW")[0][u'foreign_id']
-    #except:
-    #    n += 1
-    #    tflag = True
-    #    while tflag == True:
-    #        tflag = False
-    #        try:
-    #            new_first_track_id = the_songs[n].get_tracks("spotify-WW")[0][u'foreign_id']
-    #        except:
-    #            tflag = True
-    #            n += 1
+    try:
+        last_song_id = the_song.cache['tracks'][0]['foreign_id']
+    except:
+        n += 1
+        tflag = True
+        while tflag == True:
+            tflag = False
+            try:
+                last_song_id = the_songs[n].cache['tracks'][0]['foreign_id']
+            except:
+                tflag = True
+                n += 1
 
     seen = set()
     seen_add = seen.add
