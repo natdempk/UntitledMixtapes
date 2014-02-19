@@ -18,15 +18,14 @@ class echoArtistThread(threading.Thread):
         self.song_max = song_max-4
 
     def run(self):
-        while True:
-            try:
-                a = self.queue.get()
-                ar = artist.Artist(a)
-                l = ar.get_songs(results=5)
-                self.artist_list.append({'artist':ar,'songs':l})
-            finally:
-                self.queue.task_done()
-                return
+        try:
+            a = self.queue.get()
+            ar = artist.Artist(a)
+            l = ar.get_songs(results=5)
+            self.artist_list.append({'artist':ar,'songs':l})
+        finally:
+            self.queue.task_done()
+            return
 
 
 def get_artist_num(song_max):
