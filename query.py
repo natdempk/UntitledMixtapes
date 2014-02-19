@@ -26,6 +26,7 @@ class echoArtistThread(threading.Thread):
                 self.artist_list.append({'artist':ar,'songs':l})
             finally:
                 self.queue.task_done()
+                return
 
 
 def get_artist_num(song_max):
